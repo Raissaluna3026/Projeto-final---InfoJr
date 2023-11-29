@@ -1,7 +1,12 @@
+/* eslint-disable @next/next/no-css-tags */
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from '../page.module.css';
+import Bodyy from './bodyy';
+
+
 
 export default function Body(){
 
@@ -45,7 +50,9 @@ export default function Body(){
                     <div className={styles.produto}>
                         <img src="\images\image prod.png" alt="BD"  />
                         <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3> 
+                            <Link href='/boddy'>
+                                <h3>Blvck Mohair Branded Sweater</h3>
+                            </Link>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p> 
                             <p><span>X Itens em estoque</span></p> 
                         </div>
