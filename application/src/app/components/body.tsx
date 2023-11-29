@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../page.module.css';
-import Bodyy from './bodyy';
+import Bodyy from '../produto/page';
 
 
 
@@ -50,7 +50,7 @@ export default function Body(){
                     <div className={styles.produto}>
                         <img src="\images\image prod.png" alt="BD"  />
                         <div className={styles.txtproduto}>
-                            <Link href='/boddy'>
+                            <Link href='/produto'>
                                 <h3>Blvck Mohair Branded Sweater</h3>
                             </Link>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p> 
