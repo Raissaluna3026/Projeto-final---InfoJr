@@ -118,7 +118,7 @@
 .images p{
     position: absolute;
     margin-top: -60px;
-    color: white;
+    color: #F9F9F9;
     margin-left: 20px;
     color: var(--c2, #F9F9F9);
     font-family: Cabinet Grotesk;
