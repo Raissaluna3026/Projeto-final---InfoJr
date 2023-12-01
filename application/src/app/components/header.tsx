@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import styles from '../page.module.css';
+import Link from 'next/link';
 
 export default function Header(){
 
@@ -20,13 +21,13 @@ export default function Header(){
 
     return(
         <>
-            <div className={styles.header}>
+            <div className={styles.header} onMouseLeave={() => {handleClick(), handleClick2()}}>
                 <div className={styles.black}>  
                     <h1>BLVCK</h1>
                 </div>
-                <div className={styles.divmeio}>
-                    <div className={styles.divprodutos}>
-                        <a href="#" onClick={() => handleClick()}>Produtos</a>
+                <div className={styles.divmeio} >
+                    <div className={styles.divprodutos}  >
+                        <Link href="/produtos" onMouseEnter={() => handleClick()}>Produtos</Link>
                         {visivel && (
                             <div className={styles.opcprodutos}>
                                 <p>Camisas</p>
@@ -39,7 +40,7 @@ export default function Header(){
                         )}
                     </div>
                     <div className={styles.divcolec}>
-                        <a href="#" onClick={() => handleClick2()}>Coleções</a>
+                        <a href="#" onMouseEnter={() => handleClick2()}>Coleções</a>
                         {visivel2 && (
                             <div className={styles.opcolec}>
                                 <p>Keith Haring & Blvck</p>

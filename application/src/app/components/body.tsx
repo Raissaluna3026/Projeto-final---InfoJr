@@ -50,7 +50,7 @@ export default function Body(){
                     <div className={styles.produto}>
                         <img src="\images\image prod.png" alt="BD"  />
                         <div className={styles.txtproduto}>
-                            <Link href='/produto'>
+                            <Link href='/produto' style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer'}}>
                                 <h3>Blvck Mohair Branded Sweater</h3>
                             </Link>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p> 

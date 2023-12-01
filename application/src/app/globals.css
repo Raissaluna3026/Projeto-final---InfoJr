@@ -4,3 +4,6 @@
     margin: 0;
     font-family: Cabinet grotesk;
 }
+button{
+    cursor: pointer;
+}
