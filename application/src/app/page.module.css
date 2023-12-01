@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Montserrat:wght@300&family=Poppins:wght@300&family=Space+Grotesk:wght@500&display=swap');
 
+
 /*HEADER*/
 .header {
     width: 98vw;
@@ -147,6 +148,12 @@
     flex-direction: column;
 }
 
+<<<<<<< HEAD=======.produto img {
+    width: 100%;
+}
+
+>>>>>>>25e8381f735ece3d421d469d2e47b096776b2674
+
 /*HOMEPAGE - part 3*/
 .txtproduto {
     display: flex;
@@ -167,6 +174,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+    width: 90%;
 }
 
 .spana {
@@ -247,14 +255,14 @@
 
 .fcontainer {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: flex;
     justify-content: center;
     background-color: #808080;
 }
 
 .fDiv {
-    height: 1000px;
+    height: 700px;
     width: 1000px;
     background-color: white;
 }
