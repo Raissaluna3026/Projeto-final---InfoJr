@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Montserrat:wght@300&family=Poppins:wght@300&family=Space+Grotesk:wght@500&display=swap');
 
+
 /*HEADER*/
 .header{
     width: 98vw;
@@ -132,6 +133,10 @@
     gap: 12px;
     flex-direction: column;
 }
+
+.produto img{
+    width: 100%;
+}
 /*HOMEPAGE - part 3*/
 .txtproduto{
     display: flex;
@@ -150,6 +155,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+    width: 90%;
 }
 .spana {
     position: relative;
@@ -217,4 +223,284 @@
 }
 .rightfooter p{
     font-size: 17px;
+}
+/* PAGINA 2 - BODYY*/
+.sec{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 1200px;
+    margin-top: 100px;
+}
+
+.divleft{
+    display: flex;
+    gap: 20px;
+}
+.seta{
+    position: absolute;
+    margin-top: -38px;
+}
+.leftpeq{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.quant{
+    display: flex;
+    justify-content: space-between;
+    width: 202px;
+}
+.divright{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.pp {
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    line-height: 150%; /* 18px */
+    letter-spacing: 0.048px;
+    color: #525252;
+}
+.divright h5{
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+}
+.divright h2{
+    font-family: "Inter";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 49.5px */
+}
+.inptxt{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.inptxt select {
+    height: 35px;
+    width: 75px;
+    padding-left: 25px;
+    border-color: #1B1B1B;
+    
+}
+
+
+.botao{
+    display: flex;
+    gap: 16px;
+    
+}
+.botao button{
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: var(--c10, #1B1B1B);
+    color: white;
+    text-align: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    box-shadow: 0px 0px 0px 0px #BDBDBD;
+    border: none;
+}
+.fav{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.divright p{
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: 0.048px;
+    color: #1B1B1B;
+}
+.inptfinal{
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+.inptfinal input{
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 220px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.setta{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.descricao{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #1B1B1B;
+}
+.tag{
+    display: flex;
+    gap: 5px;
+    margin-top: 15px;
+}
+.tag p {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--c10, #1B1B1B);
+
+}
+.btn2{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn2 button{
+    display: flex;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--c10, #1B1B1B);
+    background: var(--c1, #FFF);
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    text-align: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: #1B1B1B;
+}
+
+/* PAGINA 2 - BODY2*/
+.gridprodutos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    width: 1200px;
+}
+.btn3{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn3 button{
+    display: flex;
+    width: 211px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: var(--c10, #1B1B1B);
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    color: white;
+    font-family: "Cabinet Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+/* PAGINA 2 - BODY3*/
+.gridprodutos3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+/* PAGINA 3 - Parte1*/
+.filtragem{
+    width: 1134px;
+    display: flex;
+    justify-content: space-between;
+}
+.inptprod{
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.inptprod input{
+    height: 15px;
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 290px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.inptprod img {
+    position: absolute;
+    margin-right: 15px;
+}
+.pesquisaprod{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.pesquisaprod p {
+    color: var(--c10, #1B1B1B);
+    font-family: "Inter";
+    font-size: 14px;
+}
+.filtros{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+.filtro{
+    width: 110px;
+    height: 35px;
+    background: var(--c10, #1B1B1B);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    box-sizing: border-box;
+    color: #F9F9F9;
+}
+.tagsprod{
+    display: flex;
+    gap: 6px;
+}
+.tagprod{
+    width: 110px;
+    height: 30px;
+    border: 1px solid var(--c10, #1B1B1B);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
