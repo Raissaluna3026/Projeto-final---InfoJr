@@ -148,11 +148,10 @@
     flex-direction: column;
 }
 
-<<<<<<< HEAD=======.produto img {
+.produto img {
     width: 100%;
 }
 
->>>>>>>25e8381f735ece3d421d469d2e47b096776b2674
 
 /*HOMEPAGE - part 3*/
 .txtproduto {
@@ -272,6 +271,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
+    gap: 10px;
 }
 
 .fEditTitle {
@@ -318,7 +318,8 @@
 
 .fImgEdit {
     width: 400px;
-    height: auto;
+    height: 400px;
+    background-color: #BDBDBD;
 }
 
 .fImgColContainer {
@@ -326,6 +327,13 @@
     flex-direction: column;
     width: 75px;
     padding-right: 5px;
+    margin-left: 20px;
+}
+
+.fImgColContainer button {
+    border: none;
+    padding: 20px;
+    margin-top: 5px;
 }
 
 .fImgCol {
@@ -336,6 +344,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.fAddImgBtn {
+    width: 100%;
+    height: 100%;
+}
+
+.fAddImgBtn:hover {
+    background-color: #D1D1D1;
 }
 
 .fProdEditContent {
@@ -453,6 +470,32 @@
     padding: 3px;
 }
 
+.fEditTag {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.fEditTag p {
+    border: 1px solid;
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fEditTag p:hover {
+    background-color: #1B1B1B;
+    color: white;
+    cursor: pointer;
+}
+
+.fEditTag p img {
+    width: 15px;
+    padding-left: 5px;
+}
+
 .fEditColectionContainer {
     display: flex;
     flex-direction: column;
@@ -464,4 +507,14 @@
     height: 40px;
     width: 300px;
     padding: 3px;
+}
+
+.fProdImgInputForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: auto;
+    cursor: pointer;
 }

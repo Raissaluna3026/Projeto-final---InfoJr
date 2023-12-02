@@ -4,7 +4,7 @@ import styles from './page.module.css'
 import Body from './components/body'
 import Header from './components/header';
 import Footer from './components/footer';
-import EditProd from './components/editProd';
+import CreateProd from './components/createProd';
 
 
 export default function Home() {
@@ -13,6 +13,7 @@ export default function Home() {
       <Header />
       <Body />
       <Footer />
+      <CreateProd />
     </main>
   )
 }
