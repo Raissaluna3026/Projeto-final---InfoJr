@@ -2,7 +2,9 @@ services:
   ecommerce:
     build: ./application
     ports:
-      - 3000:3000
+      - 4000:3000
+    volumes:
+      - ./application:/app
 
   database:
     image: postgres:latest
