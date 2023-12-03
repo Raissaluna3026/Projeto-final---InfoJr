@@ -7,29 +7,30 @@ import Header from "../components/header";
 import styles from '../page.module.css';
 
 
-
-export default function Produtos(){
+export default function Edicao(){
 
     const [visivel, setVisivel] = useState(false);
 
     const handleClick = () => {
         setVisivel(!visivel);
     }
-
-
     return(
-
-
         <>
-        <Header/>
-            <section className={styles.homepage}>            
+        <Header />
+        <section className={styles.homepage}>            
                 <div className={styles.div1}>
-                <h2 className={styles.spana}> Produtos </h2>
+                <h2 className={styles.spana}> Edição </h2>
                 <div className={styles.filtragem}>
                     <div className={styles.pesquisaprod}>
-                        <div className={styles.inptprod}>
-                            <input type="text"  placeholder="Pesquisar"/>
-                            <img src="\icons\search.svg" alt="" />
+                        <div className={styles.inptbtn}>
+                            <div className={styles.inptprod}>
+                                <input type="text"  placeholder="Pesquisar"/>
+                                <img src="\icons\search.svg" alt="" />
+                            </div>
+                            <div className={styles.criarprod} style={{cursor:'pointer'}}>
+                                Criar produto
+                                <img src="\icons\add.svg" alt="" />
+                            </div>
                         </div>
                         <p>23 Itens encontrados!</p>
                     </div>
@@ -206,9 +207,7 @@ export default function Produtos(){
                 </div>
 
             </section>
-
         <Footer/>
         </>
-        
     )
 }
