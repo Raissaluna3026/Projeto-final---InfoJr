@@ -11,7 +11,7 @@ services:
     environment:
       - "POSTGRES_PASSWORD=Postgres2022!"
       - "POSTGRES_USER=root"
-      - "POSTGRES_DB=temp"
+      - "POSTGRES_DB=ecommerce"
     ports:
       - 5000:5432
     volumes:
