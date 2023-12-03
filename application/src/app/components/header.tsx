@@ -21,7 +21,7 @@ export default function Header(){
 
     return(
         <>
-            <div className={styles.header} onMouseLeave={() => {handleClick(), handleClick2()}}>
+            <div className={styles.header} onMouseLeave={() => {setVisivel(false), setVisivel2(false)}}>
                 <div className={styles.black}>  
                     <h1>BLVCK</h1>
                 </div>
