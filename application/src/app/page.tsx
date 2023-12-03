@@ -4,16 +4,14 @@ import styles from './page.module.css'
 import Body from './components/body'
 import Header from './components/header';
 import Footer from './components/footer';
-import Body2 from './produto/page';
 
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Header/>
-      <Body/>
-      <Footer/>
-
+      <Header />
+      <Body />
+      <Footer />
     </main>
   )
 }
