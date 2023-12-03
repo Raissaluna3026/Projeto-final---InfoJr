@@ -1,0 +1,18 @@
+services:
+  ecommerce:
+    build: ./application
+    ports:
+      - 3000:3000
+
+  database:
+    image: postgres:latest
+    environment:
+      - "POSTGRES_PASSWORD=Postgres2022!"
+      - "POSTGRES_USER=root"
+      - "POSTGRES_DB=temp"
+    ports:
+      - 5000:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+volumes:
+  data:
