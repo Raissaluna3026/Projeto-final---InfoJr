@@ -1,0 +1,3 @@
+INSERT INTO temp VALUES (1);
+
+SELECT * FROM temp;
