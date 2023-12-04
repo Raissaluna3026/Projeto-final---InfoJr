@@ -71,7 +71,7 @@
     border: 1px solid var(--c4, #BDBDBD);
 }
 
-/*HOMEPAGE - part 1*/
+/*HOMEPAGE - pagina 1*/
 .homepage {
     width: 100%;
     display: flex;
@@ -111,7 +111,115 @@
     min-width: 200px;
 }
 
-/*HOMEPAGE - part 2*/
+/*HOMEPAGE - pagina 2 - parte 1*/
+.sec{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    margin-top: 100px;
+}
+.divleft{
+    display: flex;
+    gap: 20px;
+}
+.leftpeq{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.quant{
+    width: 206px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.seta{
+    position: absolute;
+    margin-top: -38px;
+}
+.divright{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.divright h5{
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+}
+
+.inptxt select {
+    width: 80px;
+    height: 35px;
+    border: 1px solid var(--c10, #1B1B1B);
+    margin-top: 10px;
+}
+.botao{
+    display: flex;
+    gap: 16px;
+}
+.botao button{
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: #1B1B1B;
+    color: white;
+    text-align: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    box-shadow: 0px 0px 0px 0px #BDBDBD;
+    border: 0px;
+}
+.fav{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.divright p{
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: 0.048px;
+}
+.inptfinal{
+    display: flex;
+    gap: 16px;
+}
+.inptfinal input{
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 220px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.setta{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .div1 h2 {
     color: var(--c10, #1B1B1B);
     text-align: center;
@@ -123,6 +231,78 @@
     letter-spacing: -1.18px;
     height: 68px;
 }
+.descricao{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tag{
+    display: flex;
+    gap: 5px;
+}
+.tag p {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--c10, #1B1B1B);
+
+}
+.btn2{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn2 button{
+    display: flex;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--c10, #1B1B1B);
+    background: var(--c1, #1B1B1B);
+    text-align: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    box-shadow: 0px 0px 0px 0px #BDBDBD;
+}
+/*HOMEPAGE - pagina 2 - parte 2*/
+.gridprodutos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+.btn3{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn3 button{
+    display: flex;
+    width: 211px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: var(--c10, #1B1B1B);
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    color: white;
+    font-family: "Cabinet Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+/*HOMEPAGE - pagina 2 - parte 3*/
+.gridprodutos3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
 
 .images {
     display: flex;
@@ -148,13 +328,139 @@
     flex-direction: column;
 }
 
-<<<<<<< HEAD=======.produto img {
+/*<<<<<<< HEAD=======*/.produto img {
     width: 100%;
 }
 
->>>>>>>25e8381f735ece3d421d469d2e47b096776b2674
+/*>>>>>>>25e8381f735ece3d421d469d2e47b096776b2674*/
 
-/*HOMEPAGE - part 3*/
+
+/* PAGINA 3 - Parte1*/
+.filtragem{
+    width: 1134px;
+    display: flex;
+    justify-content: space-between;
+}
+.pesquisaprod{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+    gap: 10px;
+}
+.inptprod{
+    display: flex;
+    width: 312px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.inptprod input{
+    height: 15px;
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 290px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.inptprod img {
+    position: absolute;
+    margin-right: 15px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.filtro{
+    width: 110px;
+    height: 35px;
+    background: var(--c10, #1B1B1B);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    box-sizing: border-box;
+    color: #F9F9F9;
+
+}
+.tagsprod{
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+.tagprod{
+    width: 110px;
+    height: 30px;
+    border: 1px solid var(--c10, #1B1B1B);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invprod{
+    display: flex;
+    background: gray;
+    gap: 20px;
+    padding: 20px 25px 30px 25px; /*top direita inferior esquerda*/
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #1B1B1B;
+    color: #F9F9F9;
+}
+.invprodcat * {
+    display: flex;
+    gap: 5px;
+}
+.invprodcole * {
+    display: flex;
+    gap: 5px;
+}
+.invprodcat{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+.invprodcole{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+.invprod p {
+    position: absolute;
+}
+.num{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.inptbtn{
+    display: flex;
+    height: 37px;
+    gap: 15px;
+}
+.criarprod{
+    width: 150px;
+    height: 37px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/*HOMEPAGE - pagina 3 - part2*/
 .txtproduto {
     display: flex;
     flex-direction: column;
@@ -322,83 +628,50 @@
     height: auto;
 }
 
-/* PAGINA 3 - Parte1*/
-.filtragem{
-    width: 1134px;
-    display: flex;
-    justify-content: space-between;
-}
-.inptprod{
-    display: flex;
-    
-    justify-content: flex-end;
-    align-items: center;
-}
-.inptprod input{
-    height: 15px;
-    display: flex;
-    border: 1px solid var(--c10, #1B1B1B);
-    width: 290px;
-    align-items: flex-start;
-    padding: 10px;
-    align-items: center;
-    font-family: "Cabinet Grotesk";
-    font-size: 14px;
-    font-style: normal;
-    line-height: 150%; /* 21px */
-}
-.inptprod img {
-    position: absolute;
-    margin-right: 15px;
-}
-.pesquisaprod{
-    display: flex;
-    flex-direction: column;
-    width: 75px;
-    padding-right: 5px;
-}
 
-.fImgCol {
+
+
+.fImgCol {              /*Fábio*/
     padding-bottom: 5px;
 }
 
-.fProdImg {
+.fProdImg { /*Fábio*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.fProdEditContent {
+.fProdEditContent { /*Fábio*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.fEditNameContainer {
+.fEditNameContainer { /*Fábio*/
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
 }
 
-.fEditNameContainer input {
+.fEditNameContainer input { /*Fábio*/
     width: 300px;
     height: 40px;
     border: #1B1B1B solid 1px;
 }
 
-.fEditContainerInput {
+.fEditContainerInput { /*Fábio*/
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
 }
 
-.fEditStockContainer {
+.fEditStockContainer { /*Fábio*/
     display: flex;
     gap: 3px;
     margin-bottom: 40px;
 }
 
-.fEditStockLabel {
+.fEditStockLabel { /*Fábio*/
     font-weight: 700;
     border: 1px solid;
     padding: 8px;
@@ -407,115 +680,59 @@
     min-width: 30px;
 }
 
-.fEditStock {
+.fEditStock { /*Fábio*/
     border: 1px solid;
     text-align: center;
     max-width: 40px;
     margin-left: -6px;
 }
 
-.fEditLabel {
+.fEditLabel { /*Fábio*/
     font-weight: 500;
 }
 
-.fEditLabelContainer {
+.fEditLabelContainer { /*Fábio*/
     display: flex;
     gap: 6px;
     margin-top: 10px;
 }
 
-.fEditLabel span {
+.fEditLabel span { /*Fábio*/
     color: #808080;
 }
 
-.fEditPrice {
+.fEditPrice { /*Fábio*/
     display: flex;
     flex-direction: column;
     flex-direction: row;
 }
 
-.fEditPrice label {
+.fEditPrice label { /*Fábio*/
     width: 100%;
 }
 
-.fEditPrice input {
+.fEditPrice input { /*Fábio*/
     width: 50%;
 }
 
-.fEditPriceInput {
+.fEditPriceInput { /*Fábio*/
     height: 40px;
     border: 1px solid;
     margin-left: -2px;
     max-width: 100px;
 }
 
-.fEditPrice p {
+.fEditPrice p { /*Fábio*/
     border: 1px solid;
     width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.invprod{
-    display: flex;
-    background: gray;
-    gap: 20px;
-    padding: 20px 25px 30px 25px; /*top direita inferior esquerda*/
-    align-items: flex-end;
-    justify-content: flex-end;
-    background-color: #1B1B1B;
-    color: #F9F9F9;
-}
-.invprodcat * {
-    display: flex;
-    gap: 5px;
-}
-.invprodcole * {
-    display: flex;
-    gap: 5px;
-}
-.invprodcat{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 5px;
-}
-.invprodcole{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 5px;
-}
-.invprod p {
-    position: absolute;
-}
-.numeracaoPagProd{
+
+
+.numeracaoPagProd{ /*Fábio*/
     display: flex;
     gap: 5px;
     margin-top: 60px;
-}
-.num{
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-}
-.inptbtn{
-    display: flex;
-    height: 37px;
-    gap: 15px;
-}
-.criarprod{
-    width: 150px;
-    height: 37px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 }
