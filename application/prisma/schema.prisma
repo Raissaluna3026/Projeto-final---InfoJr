@@ -10,6 +10,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
+model Product {
+  id Int @id @default(autoincrement())
+  quantity Int 
+  name String
+  totalPrice Float
+  discountPrice Float
+  images String[]
+  gender GENDER
+  tags TAG[]
+
+  collection Collection @relation(fields: [collectionId], references: [id])
+  collectionId String
+ @@map("products") 
+}
+
+enum GENDER {
+  MASCULINO
+  FEMININO
+}
+
+enum PRODUCTTYPE {
+  CALCA
+  CAMISA
+  CASACOS
+  ACESSORIOS
+  MASCULINO
+  FEMININO
+}
+
+enum TAG {
+  CALCA
+  CAMISA
+  CASACOS
+  ACESSORIOS
+  MASCULINO
+  FEMININO
+}
+
+model Collection {
+  id String @id @default(uuid())
+  name String @unique
+  products Product[]
+  @@map("collections")
 }
