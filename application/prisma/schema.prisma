@@ -18,6 +18,7 @@ model Product {
   discountPrice Float
   images String[]
   gender GENDER
+  productType PRODUCTTYPE
   tags TAG[]
 
   collection Collection @relation(fields: [collectionId], references: [id])
