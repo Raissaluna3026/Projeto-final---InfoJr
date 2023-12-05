@@ -70,6 +70,16 @@
     padding-right: 25px;
     border: 1px solid var(--c4, #BDBDBD);
 }
+.menu{
+    margin-top: 5px;
+    display: none;
+}
+.menu button{
+    border: none;
+}
+.menuOverlay{
+    display: none;
+}
 @media(max-width: 600px){
     .divmeio{
         display: none;
@@ -78,9 +88,7 @@
         display: block;
         position: relative;
     }
-    .menu button{
-        border: none;
-    }
+    
     .menuOverlay{
         display: flex;
         gap:5px;
@@ -180,6 +188,26 @@
     font-size: 24px;
     min-width: 200px;
 }
+@media(max-width: 600px){
+    .div1 h1{
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 32px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+    .container{
+        width: 400px;
+        height: 455px;
+        overflow: hidden;
+    }
+    .container img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 60%;
+    }
+}
 
 /*HOMEPAGE - part 2*/
 .div1 h2 {
@@ -197,6 +225,9 @@
 .images {
     display: flex;
     gap: 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .images p {
@@ -220,6 +251,49 @@
 
 .produto img {
     width: 100%;
+}
+@media (max-width: 600px){
+    .div1 h2{
+        font-size: 28px;
+    }
+    .images{
+        flex-direction: column;
+    }
+    .images p{
+        font-size:20px;
+        margin-top: -30px;
+        margin-left: 10px;
+    }
+    .left{
+        flex-direction: row;
+    }
+    .promo{
+        width: 163px;
+        height: 200px;
+    }
+    .promo img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .acess{
+        width: 163px;
+        height: 200px;
+    }
+    .acess img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .right{
+        width: 345px;
+        height: 345px;
+    }
+    .right img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 
@@ -263,6 +337,15 @@
     width: 105%;
     height: 20%;
     background-color: #D1D1D1;
+}
+@media (max-width: 600px){
+    .spana{
+        font-size: 28px;
+    }
+    .gridprodutos{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }
 
 /*FOOTER*/
@@ -392,7 +475,18 @@
     height: 400px;
     background-color: #BDBDBD;
 }
-
+@media (max-width:600px){
+    .footer{
+        height: 375px;
+        flex-direction: column;
+    }
+    .leftfooter p{
+        text-align: center;
+    }
+    .rightfooter p{
+        text-align: center;
+    }
+}
 /* PAGINA 3 - Parte1*/
 .filtragem{
     width: 1134px;
