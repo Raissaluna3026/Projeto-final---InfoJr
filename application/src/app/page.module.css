@@ -70,6 +70,76 @@
     padding-right: 25px;
     border: 1px solid var(--c4, #BDBDBD);
 }
+@media(max-width: 600px){
+    .divmeio{
+        display: none;
+    }
+    .menu{
+        display: block;
+        position: relative;
+    }
+    .menu button{
+        border: none;
+    }
+    .menuOverlay{
+        display: flex;
+        gap:5px;
+        flex-direction: row;
+        align-items: flex-start;
+        position: absolute;
+        padding: 24px;
+        border: 1px;
+        gap: 16px;
+        top: 5px;
+        right: -5px;
+        margin-top: 51px; 
+        opacity: 100%;
+        background: white;
+        border: 1px solid var(--c4, #BDBDBD);
+    }
+    .divprodutosMenu{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .divprodutosMenu p{
+        font-family: 'Cabinet Grotesk', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.01em;
+        text-align: left;
+    }
+    .produtosMenu p{
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.0015em;
+        text-align: left;
+    }
+    .divcolecMenu{
+        display: flex;
+        flex-direction: column;
+    }
+    .divcolecMenu p{
+        font-family: 'Cabinet Grotesk', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.01em;
+        text-align: left;
+    }
+    .colecMenu p{
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.0015em;
+        text-align: left;
+    }
+}
 
 /*HOMEPAGE - part 1*/
 .homepage {
