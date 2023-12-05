@@ -1,27 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../../prisma/Client/Prisma";
+import { channel } from "diagnostics_channel";
+import { NextResponse } from "next/server";
 
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { method } = req;
-
-  switch (method) {
-    case "GET":
-      return await handleGetCollection(req, res);
-
-    case "POST":
-      return await handleAddCollection(req, res);
-
-    case "PUT":
-      return await handleChangeProductCollection(req, res);
-
-    default:
-      res.status(405).end(); // Método não permitido
-  }
-}
 
 // retorna produtos da coleção
 async function handleGetCollection(req: NextApiRequest, res: NextApiResponse) {
@@ -48,17 +29,18 @@ async function handleGetCollection(req: NextApiRequest, res: NextApiResponse) {
 }
 
 // cria uma coleção
-async function handleAddCollection(req: NextApiRequest, res: NextApiResponse) {
-  const { name } = req.body;
-
+export async function POST(req: Response, res: NextApiResponse) {
+  const { name } = await req.json()
   try {
     // Verificar se a coleção já existe
     const existingCollection = await prisma.collection.findUnique({
-      where: { name },
+      where: { 
+        name: name 
+      },
     });
 
     if (existingCollection) {
-      return res.status(400).json({ error: 'Collection with this name already exists' });
+      return NextResponse.json({msg: "Coleção já existente"}, {status: 404})
     }
 
     // Criar a nova coleção
@@ -68,10 +50,10 @@ async function handleAddCollection(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    res.status(201).json(newCollection);
+    return NextResponse.json({msg: "Coleção criada"}, {status: 201})
   } catch (error) {
     console.error('Error creating collection:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return NextResponse.json({msg: 'Internal Server Error'}, {status: 500})
   }
 }
 

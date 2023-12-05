@@ -18,12 +18,16 @@ export default function Header(){
         setVisivel2(!visivel2);
         setVisivel(false)
     }
+    const [visivel3, setVisivel3] = useState(false);
+    const handleClick3 = () => {
+        setVisivel3(!visivel3);
+    }
 
     return(
         <>
             <div className={styles.header} onMouseLeave={() => {setVisivel(false), setVisivel2(false)}}>
                 <div className={styles.black}>  
-                    <h1>BLVCK</h1>
+                    <Link className={styles.title} href={"/"} ><h1>BLVCK</h1></Link> 
                 </div>
                 <div className={styles.divmeio} >
                     <div className={styles.divprodutos}  >
@@ -56,6 +60,35 @@ export default function Header(){
                     <a href="#"> <img src="\icons\shopping_cart.svg" alt="shopping" /></a>
                     <a href="#"><img src="\icons\favorite_border.svg" alt="fav" /></a>
                     <a href="#"><img src="\icons\person_outline.svg" alt="person" /></a>
+                    <div className={styles.menu}>
+                        <button onMouseEnter={() => handleClick3()}><img src="\icons\menu.svg" alt="menu"/></button>
+                        {visivel3 && (
+                            <div className={styles.menuOverlay}>
+                                <div className={styles.divprodutosMenu}>
+                                    <p>Produtos</p>
+                                    <div className={styles.produtosMenu}>
+                                        <p>Camisas</p>
+                                        <p>Calças</p>
+                                        <p>Casacos</p>
+                                        <p>Acessórios</p>
+                                        <p>Masculino</p>
+                                        <p>Feminino</p>
+                                    </div>
+                                </div>
+                                <div className={styles.divcolecMenu}>
+                                    <p>Coleções</p>
+                                    <div className={styles.colecMenu}>
+                                        <p>Keith Haring & Blvck</p>
+                                        <p>Fortnite & Blvck</p>
+                                        <p>Shorts</p>
+                                        <p>Whte</p>
+                                    </div>
+                                </div>
+                                <button onMouseEnter={() => handleClick3()}>X</button>
+                                
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </>
