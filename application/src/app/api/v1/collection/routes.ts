@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../../prisma/Client/Prisma";
-import { channel } from "diagnostics_channel";
 
 
 export default async function handler(
