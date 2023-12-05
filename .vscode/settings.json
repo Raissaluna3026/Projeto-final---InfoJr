@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5000,
+            "driver": "PostgreSQL",
+            "name": "temp",
+            "database": "temp",
+            "username": "root",
+            "password": "Postgres2022!"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5000,
+            "driver": "PostgreSQL",
+            "name": "ecommerce",
+            "password": "Postgres2022!",
+            "username": "root",
+            "database": "ecommerce"
+        }
+    ]
+}
