@@ -196,3 +196,29 @@
     gap: 5px;
     margin-top: 60px;
 }
+@media (max-width: 600px){
+    .spana{
+        font-size: 28px;
+    }
+    .gridprodutos{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .produto img{
+        width: 165px;
+        height: 165px;
+        object-fit: cover;
+    }
+    .filtragem{
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+    }
+    .pesquisaprod{
+            width: 100px;
+    }
+    .intprod{
+            width: 225px;
+    }
+    
+}
