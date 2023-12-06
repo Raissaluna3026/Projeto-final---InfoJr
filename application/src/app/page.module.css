@@ -611,6 +611,7 @@
     align-items: center;
     gap: 10px;
 }
+
 /*HOMEPAGE - pagina 3 - part2*/
 .txtproduto {
     display: flex;
@@ -834,6 +835,19 @@
     width: 75px;
     padding-right: 5px;
     margin-left: 20px;
+}
+@media (max-width: 600px){
+    .filtragem{
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+    .pesquisaprod{
+        width: 100px;
+    }
+    .intprod{
+        width: 225px;
+    }
 }
 
 
