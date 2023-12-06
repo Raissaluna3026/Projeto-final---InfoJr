@@ -13,6 +13,7 @@ datasource db {
 model Product {
   id Int @id @default(autoincrement())
   quantity Int 
+  size String
   name String
   totalPrice Float
   discountPrice Float
