@@ -86,6 +86,12 @@
         display: block;
         position: relative;
     }
+    .menuOverlay a{
+        text-decoration: none;
+        color: #1B1B1B;
+        font-weight: bolder;
+
+    }
     .menu button{
         border : none;
         padding-top: 8px;
@@ -106,6 +112,7 @@
         opacity: 100%;
         background: white;
         border: 1px solid var(--c4, #BDBDBD);
+        z-index: 2; 
     }
     .divprodutosMenu{
         display: flex;
@@ -181,6 +188,7 @@
     letter-spacing: -1.88px;
     width: 100%;
     margin-top: 35px;
+    z-index: 1;
 }
 
 .homepage button {
@@ -192,6 +200,7 @@
     min-width: 200px;
 }
 @media(max-width: 600px){
+    
     .div1 h1{
         font-size: 28px;
         font-weight: 800;
@@ -199,6 +208,7 @@
         letter-spacing: -0.02em;
         text-align: center;
     }
+
     .container{
         width: 400px;
         height: 455px;

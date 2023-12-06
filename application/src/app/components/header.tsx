@@ -61,11 +61,11 @@ export default function Header(){
                     <a href="#"><img src="\icons\favorite_border.svg" alt="fav" /></a>
                     <a href="/editar"><img src="\icons\person_outline.svg" alt="person" /></a>
                     <div className={styles.menu}>
-                        <button onMouseEnter={() => handleClick3()}><img src="\icons\menu.svg" alt="menu"/></button>
+                        <button onClick={() => handleClick3()}><img src="\icons\menu.svg" alt="menu"/></button>
                         {visivel3 && (
                             <div className={styles.menuOverlay}>
                                 <div className={styles.divprodutosMenu}>
-                                    <p>Produtos</p>
+                                    <a href='/produtos'>Produtos</a>
                                     <div className={styles.produtosMenu}>
                                         <p>Camisas</p>
                                         <p>Calças</p>
@@ -76,7 +76,7 @@ export default function Header(){
                                     </div>
                                 </div>
                                 <div className={styles.divcolecMenu}>
-                                    <p>Coleções</p>
+                                    <a href='#'>Coleções</a>
                                     <div className={styles.colecMenu}>
                                         <p>Keith Haring & Blvck</p>
                                         <p>Fortnite & Blvck</p>
