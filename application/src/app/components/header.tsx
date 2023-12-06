@@ -59,7 +59,7 @@ export default function Header(){
                 <div className={styles.divicons}>
                     <a href="#"> <img src="\icons\shopping_cart.svg" alt="shopping" /></a>
                     <a href="#"><img src="\icons\favorite_border.svg" alt="fav" /></a>
-                    <a href="#"><img src="\icons\person_outline.svg" alt="person" /></a>
+                    <a href="/editar"><img src="\icons\person_outline.svg" alt="person" /></a>
                     <div className={styles.menu}>
                         <button onMouseEnter={() => handleClick3()}><img src="\icons\menu.svg" alt="menu"/></button>
                         {visivel3 && (

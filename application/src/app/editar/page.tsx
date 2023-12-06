@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import styles from '../page.module.css';
+import styles from './page.module.css';
 
 
 export default function Edicao(){
@@ -29,7 +29,7 @@ export default function Edicao(){
                             </div>
                             <div className={styles.criarprod} style={{cursor:'pointer'}}>
                                 Criar produto
-                                <img src="\icons\add.svg" alt="" />
+                                <img src="\images\imgadd.svg" alt="" />
                             </div>
                         </div>
                         <p>23 Itens encontrados!</p>
@@ -103,9 +103,9 @@ export default function Edicao(){
                         </div>
                     </div>
                 </div>
-                <div className={styles.gridprodutos}>
+                <div className={styles.gridprodutos2}>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -113,7 +113,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -121,7 +121,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -129,7 +129,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -137,7 +137,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -145,7 +145,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -153,7 +153,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -161,7 +161,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -169,7 +169,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -177,7 +177,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -185,7 +185,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
@@ -193,7 +193,7 @@ export default function Edicao(){
                         </div>
                     </div>
                     <div className={styles.produto}>
-                        <img src="\images\image prod.png" alt="BD"  />
+                        <img src="\images\imgfem2.png" alt="BD"  />
                         <div className={styles.txtproduto}>
                             <h3>Blvck Mohair Branded Sweater</h3>
                             <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
