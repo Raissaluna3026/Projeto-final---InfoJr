@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react'
-import styles from '../page.module.css';
+import styles from '../fpage.module.css';
 
 
 export default function CreateProd() {
@@ -98,11 +98,11 @@ export default function CreateProd() {
                 <p className={styles.fEditStockLabel}>XGG</p>
                 <input className={styles.fEditStock} placeholder='1' />
               </div>
-              <div className={styles.fEditDescContainer}>
-                <label className={styles.fEditLabel}>Descrição</label>
+              <div className={styles.fCreateDesc}>
+                <label >Descrição do produto</label>
                 <textarea className={styles.fEditDesc} />
               </div>
-              <div className={styles.fEditTagContainer}>
+              <div className={styles.fCreateDesc}>
                 <label className={styles.fEditLabel}>Tags</label>
                 <input
                   type="text"

@@ -15,7 +15,9 @@ export default function Body(){
             <div className={styles.div1}>
                 <h1><span className={styles.spana}>Keith Haring</span> & <span className={styles.spana} >Blvck</span> <br/> Uma Fusão de Arte e Moda</h1>
                 <button>Conheça a coleção</button>
-                <img src="\images\mainBanner.png" alt="" />
+                <div className={styles.container}>
+                    <img src="\images\mainBanner.png" alt="" />
+                </div>
             </div>
             <div className={styles.div1}>
                 <h2 className={styles.spana}>Conheça também</h2>
