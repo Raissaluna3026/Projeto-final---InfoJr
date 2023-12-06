@@ -50,14 +50,15 @@ export default function Produtos(){
     // detecta digitação na barra de pesquisa
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
+        console.log(search);
 
-        // se a barra estiver vazia
-        if(e.target.value.length === 0) {
-            onSearchHandler(undefined);
-        }
+        // // se a barra estiver vazia
+        // if(e.target.value.length === 0) {
+        //     onSearchHandler(undefined);
+        // }
 
-        // devolve as palavras q tão sendo digitadas
-        onSearchHandler(e.target.value);
+        // // devolve as palavras q tão sendo digitadas
+        // onSearchHandler(e.target.value);
     }
 
     // salva os filtros selecionados pelo clique
@@ -93,16 +94,16 @@ export default function Produtos(){
                     <div className={styles.filtragem}>
                     <div className={styles.pesquisaprod}>
                         <div className={styles.inptprod}>
-                            <input type="text"  placeholder="Pesquisar"/>
+                            <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
                             <img src="\icons\search.svg" alt="" />
                         </div>
                         <p>23 Itens encontrados!</p>
                     </div>
                     <div className={styles.filtros}>
-                        <div className={styles.filtro} onClick={() => handleClick()} style={{cursor:'pointer'}}>
+                        <button className={styles.filtro} onClick={() => handleClick()} style={{cursor:'pointer'}}>
                             Filtros
                             <img src="\icons\filter_list.svg" alt="" />
-                        </div>
+                        </button>
                         {visivel && (
                             <div className={styles.invprod}>
                                 <div className={styles.invprodcat}><strong>Categorias</strong> 
