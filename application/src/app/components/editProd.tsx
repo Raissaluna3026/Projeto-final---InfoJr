@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
-import styles from '../page.module.css';
+import styles from '../fpage.module.css';
 
 
 export default function EditProd() {
@@ -12,9 +12,9 @@ export default function EditProd() {
           <div className={styles.fDivContent}>
             <div className={styles.fProdImg}>
               <div className={styles.fImgColContainer}>
-                <img src="\images\products\blvcMohairBrandedSweater.png" alt="" className={styles.fImgCol} />
-                <img src="\images\products\blvcMohairBrandedSweater2.png" alt="" className={styles.fImgCol} />
-                <img src="\images\products\blvcMohairBrandedSweater3.png" alt="" className={styles.fImgCol} />
+                <img src="\images\products\blvcMohairBrandedSweater.png" width={100} alt="" className={styles.fImgCol} />
+                <img src="\images\products\blvcMohairBrandedSweater2.png" width={100} alt="" className={styles.fImgCol} />
+                <img src="\images\products\blvcMohairBrandedSweater3.png" width={100} alt="" className={styles.fImgCol} />
               </div>
               <div className={styles.fImgWrap}>
                 <img src="\images\products\blvcMohairBrandedSweater.png" alt="" className={styles.fImgEdit} />
@@ -59,11 +59,11 @@ export default function EditProd() {
                 <p className={styles.fEditStockLabel}>XGG</p>
                 <input className={styles.fEditStock} placeholder='1' />
               </div>
-              <div className={styles.fEditDescContainer}>
+              <div className={styles.fCreateDesc}>
                 <label className={styles.fEditLabel}>Descrição</label>
                 <textarea className={styles.fEditDesc} />
               </div>
-              <div className={styles.fEditTagContainer}>
+              <div className={styles.fCreateDesc}>
                 <label className={styles.fEditLabel}>Tags</label>
                 <input type="text" placeholder='Digite a tag' />
               </div>
