@@ -1,0 +1,181 @@
+/* PAGINA 3 - Parte1*/
+.homepage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    width: 90%;
+    margin-top: 100px;
+}
+.spana {
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+    margin: 20px;
+}
+
+.spana::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    right: -10px;
+    width: 105%;
+    height: 20%;
+    background-color: #D1D1D1;
+}
+.div1 h2 {
+    color: var(--c10, #1B1B1B);
+    text-align: center;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    /* 59px */
+    letter-spacing: -1.18px;
+    height: 68px;
+
+}
+.filtragem{
+    width: 1134px;
+    display: flex;
+    justify-content: space-between;
+}
+.pesquisaprod{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+    gap: 10px;
+}
+.inptprod{
+    display: flex;
+    width: 312px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.inptprod input{
+    height: 15px;
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 290px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.inptprod img {
+    position: absolute;
+    margin-right: 15px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.filtro{
+    width: 110px;
+    height: 35px;
+    background: var(--c10, #1B1B1B);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    box-sizing: border-box;
+    color: #F9F9F9;
+}
+.tagsprod{
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+.tagprod{
+    width: 110px;
+    height: 30px;
+    border: 1px solid var(--c10, #1B1B1B);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invprod{
+    display: flex;
+    background: gray;
+    gap: 20px;
+    padding: 20px 25px 30px 25px; /*top direita inferior esquerda*/
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #1B1B1B;
+    color: #F9F9F9;
+}
+.invprodcat * {
+    display: flex;
+    gap: 5px;
+}
+.invprodcole * {
+    display: flex;
+    gap: 5px;
+}
+.invprodcat{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+.invprodcole{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+.invprod p {
+    position: absolute;
+}
+.num{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.inptbtn{
+    display: flex;
+    height: 37px;
+    gap: 15px;
+}
+.criarprod{
+    width: 150px;
+    height: 37px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/*~2*/
+.gridprodutos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+/* PAGINA 2 - Parte 3*/
+.numeracaoPagProd{ 
+    display: flex;
+    gap: 5px;
+    margin-top: 60px;
+}
