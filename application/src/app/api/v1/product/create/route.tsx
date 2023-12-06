@@ -82,7 +82,7 @@ export async function POST(req: Request, res: NextResponse){
         return NextResponse.json({message: "Produto inserido"}, {status: 201})
     } catch (error) {
         console.log(error)
-        return NextResponse.json({message: "Falha ao inserir elemento no banco de dados"}, {status: 500})
+        return NextResponse.json({message: "Falha ao inserir elemento no banco de dados" }, {status: 500})
     }
     
 
