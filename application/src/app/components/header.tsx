@@ -27,7 +27,7 @@ export default function Header(){
         <>
             <div className={styles.header} onMouseLeave={() => {setVisivel(false), setVisivel2(false)}}>
                 <div className={styles.black}>  
-                    <h1>BLVCK</h1>
+                    <Link className={styles.title} href={"/"} ><h1>BLVCK</h1></Link> 
                 </div>
                 <div className={styles.divmeio} >
                     <div className={styles.divprodutos}  >
