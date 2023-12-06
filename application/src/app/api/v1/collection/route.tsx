@@ -117,27 +117,10 @@ export async function PUT(req: Request, res: Response) {
       return NextResponse.json({ msg: 'New collection not found' }, {status: 404});
     }
 
-    // Desconectar o produto da coleção original
-    await prisma.collection.update({
-      where: { id: fromCollection.id },
+    await prisma.product.update({
+      where: { id: product.id },
       data: {
-        products: {
-          disconnect: {
-            id: product.id,
-          },
-        },
-      },
-    });
-
-    // Conectar o produto à nova coleção
-    await prisma.collection.update({
-      where: { id: toCollection.id },
-      data: {
-        products: {
-          connect: {
-            id: product.id,
-          },
-        },
+        collectionId: toCollection.id,
       },
     });
 
