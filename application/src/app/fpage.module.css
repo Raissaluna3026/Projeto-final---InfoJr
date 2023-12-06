@@ -1,0 +1,493 @@
+.fcontainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #808080;
+}
+
+.fDiv {
+  height: auto;
+  width: 1000px;
+  background-color: white;
+}
+
+.fDivContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.fEditTitle {
+  text-align: center;
+}
+
+.fEditBtn {
+  background-color: white;
+  color: #1B1B1B;
+  border: 1px solid;
+  width: 122px;
+  height: 36px;
+  margin-right: 10px;
+}
+
+.fEditTitle {
+  text-align: center;
+}
+
+.fEditBtn:hover {
+  background-color: #1B1B1B;
+  color: white;
+  border: 1px solid #1B1B1B;
+  cursor: pointer;
+}
+
+.fSaveBtn {
+  background-color: #1B1B1B;
+  color: white;
+  width: auto;
+  height: 36px;
+  width: 70px;
+  border: none;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.fSaveBtn:hover {
+  background-color: white;
+  color: #1B1B1B;
+  cursor: pointer;
+  border: 1px solid #1B1B1B;
+}
+
+.fImgEdit {
+  width: 400px;
+  height: 400px;
+  background-color: #BDBDBD;
+}
+
+/* PAGINA 3 - Parte1*/
+.filtragem {
+  width: 1134px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fImgColContainer button {
+  border: none;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.fImgColContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.fImgCol {
+  padding-bottom: 5px;
+}
+
+.fProdImg {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.fAddImgBtn {
+  width: 100%;
+  height: 100%;
+}
+
+.fAddImgBtn:hover {
+  background-color: #D1D1D1;
+}
+
+.fProdEditContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-items: flex-start;
+}
+
+.fEditNameContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.fEditNameContainer input {
+  width: 300px;
+  height: 40px;
+  border: #1B1B1B solid 1px;
+}
+
+.fEditContainerInput {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.fEditStockContainer {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 40px;
+}
+
+.fEditStockLabel {
+  font-weight: 700;
+  border: 1px solid;
+  padding: 8px;
+  text-align: center;
+  background-color: #D1D1D1;
+  min-width: 30px;
+}
+
+.fEditStock {
+  border: 1px solid;
+  text-align: center;
+  max-width: 40px;
+  margin-left: -6px;
+}
+
+.fEditLabel {
+  font-weight: 500;
+}
+
+.fEditLabelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.fEditLabel span {
+  color: #808080;
+}
+
+.fCreateDesc {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.fCreateDesc textarea {
+  width: 450px;
+  height: 100px;
+  border: solid 1px;
+  padding-left: 5px;
+}
+
+.fCreateDesc input {
+  width: 300px;
+  height: 40px;
+  border: solid 1px;
+  padding-left: 5px;
+}
+
+.fEditPrice {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+}
+
+.fEditPrice label {
+  width: 100%;
+}
+
+.fEditPrice input {
+  width: 50%;
+}
+
+.fEditPriceInput {
+  height: 40px;
+  border: 1px solid;
+  margin-left: -2px;
+  max-width: 100px;
+}
+
+.fEditPrice p {
+  border: 1px solid;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fEditTag {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.fEditTag p {
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fEditTag p:hover {
+  background-color: #1B1B1B;
+  color: white;
+  cursor: pointer;
+}
+
+.fEditTag p img {
+  width: 15px;
+  padding-left: 5px;
+}
+
+.fEditColectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.fEditColectionContainer input {
+  border: 1px solid;
+  height: 40px;
+  width: 300px;
+  padding: 3px;
+}
+
+.fProdImgInputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: auto;
+  cursor: pointer;
+}
+
+.fCartMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.fCartWrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.fCartItems {
+  display: flex;
+  flex-direction: column;
+  width: 645px;
+}
+
+.fCartItem {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.fCartItem img {
+  width: auto;
+  height: 150px;
+  margin-right: 15px;
+}
+
+.fCartItemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.fCartInput {
+  display: flex;
+  flex-direction: row;
+}
+
+.fCartInput input {
+  width: 50px;
+  height: 20px;
+}
+
+.fCartInputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.fCartInputWrapper input {
+  width: 60px;
+  height: 25px;
+  border: 1px solid;
+}
+
+.fCartTotal {
+  border: 1px solid;
+  width: 360px;
+  padding: 15px;
+  height: 230px;
+}
+
+.fCartTotalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fCartTotalInfo button {
+  width: 100%;
+  height: 40px;
+  background-color: #1B1B1B;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.fCartTotalInfo button:hover {
+  cursor: pointer;
+  background-color: #808080;
+  color: black;
+}
+
+.fCepWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.fCepWrapper input {
+  width: 100%;
+  border: 1px solid;
+  height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fCepWrapper img {
+  border: 1px solid;
+  width: 36px;
+  height: 36px;
+}
+
+.fCepWrapper img:hover {
+  cursor: pointer;
+  background-color: #808080;
+}
+
+.fFreteWrapper p {
+  margin-top: 10px;
+}
+
+.fCartButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.fCartButtons button {
+  width: 100%;
+  height: 40px;
+  background-color: #1B1B1B;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.fCartButtons button:hover {
+  cursor: pointer;
+  background-color: #808080;
+  color: black;
+}
+
+.fCartButtons p {
+  text-decoration: underline;
+  color: #808080;
+}
+
+.fCartButtons p:hover {
+  cursor: pointer;
+}
+
+.fCartRecent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 1000px;
+}
+
+.fCartRecentItems {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.fCartButton {
+  width: 80%;
+  height: 40px;
+  background-color: #1B1B1B;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.fCartButton:hover {
+  cursor: pointer;
+  background-color: #808080;
+  color: black;
+}
+
+.fCartOtherProd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.fCartOtherProdItems {
+  display: flex;
+  width: 1000px;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.fCartSeeMoreButton {
+  margin-top: 50px;
+  width: 230px;
+  height: 40px;
+  background-color: #1B1B1B;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.fCartSeeMoreButton:hover {
+  cursor: pointer;
+  background-color: #808080;
+  color: black;
+}
