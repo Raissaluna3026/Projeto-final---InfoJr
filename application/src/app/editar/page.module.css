@@ -179,3 +179,36 @@
     gap: 5px;
     margin-top: 60px;
 }
+@media (max-width: 600px){
+    .sec{
+        flex-direction: column;
+    }
+    .div1 h2{
+        font-size: 28px;
+    }
+    .spana::before{
+        bottom: 40px;
+    }
+    .filtros{
+        align-self: flex-start;
+    }
+    .intprod{
+        width: 225px;
+    }
+    .gridprodutos2{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .filtragem{
+        width: 100%;
+        justify-content: center;
+    }
+    .inptbtn{
+        flex-direction: column-reverse;
+    }
+    .produto img{
+        width: 165px;
+        height: 165px;
+        object-fit: cover;
+    }
+}
