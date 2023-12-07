@@ -43,7 +43,7 @@
 
 }
 .filtragem{
-    width: 1134px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -52,10 +52,11 @@
     flex-direction: column;
     padding-right: 5px;
     gap: 10px;
+    width: 100%;
 }
 .inptprod{
     display: flex;
-    width: 312px;
+    width: 100%;
     justify-content: flex-end;
     align-items: center;
 }
@@ -63,7 +64,7 @@
     height: 15px;
     display: flex;
     border: 1px solid var(--c10, #1B1B1B);
-    width: 290px;
+    width: 100%;
     align-items: flex-start;
     padding: 10px;
     align-items: center;
@@ -212,10 +213,13 @@
     .filtragem{
             width: 100%;
             flex-direction: row;
-            align-items: center;
+            justify-content: center;
     }
-    .pesquisaprod{
-            width: 100px;
+    .invprod{
+        width: 300px;
+        position: absolute;
+        bottom: 24%;
+        right: 11%;
     }
 
 }
