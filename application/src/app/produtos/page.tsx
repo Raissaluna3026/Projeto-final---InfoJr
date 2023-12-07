@@ -52,13 +52,13 @@ export default function Produtos(){
         setSearch(e.target.value);
         console.log(search);
 
-        // // se a barra estiver vazia
-        // if(e.target.value.length === 0) {
-        //     onSearchHandler(undefined);
-        // }
+        // se a barra estiver vazia
+        if(e.target.value.length === 0) {
+            onSearchHandler(undefined);
+        }
 
-        // // devolve as palavras q tão sendo digitadas
-        // onSearchHandler(e.target.value);
+        // devolve as palavras q tão sendo digitadas
+        onSearchHandler(e.target.value);
     }
 
     // salva os filtros selecionados pelo clique
@@ -100,10 +100,10 @@ export default function Produtos(){
                         <p>23 Itens encontrados!</p>
                     </div>
                     <div className={styles.filtros}>
-                        <button className={styles.filtro} onClick={() => handleClick()} style={{cursor:'pointer'}}>
+                        <div className={styles.filtro} onClick={() => handleClick()} style={{cursor:'pointer'}}>
                             Filtros
                             <img src="\icons\filter_list.svg" alt="" />
-                        </button>
+                        </div>
                         {visivel && (
                             <div className={styles.invprod}>
                                 <div className={styles.invprodcat}><strong>Categorias</strong> 
@@ -165,7 +165,7 @@ export default function Produtos(){
                           {categoriesFilters.map((filter) => {
                                 return (
                                     <div className={styles.tagprod}>
-                                        {filter} x
+                                        {filter}
                                         <button onClick={() => handleCategoriesChange(filter)}> x </button>
                                     </div>
                                 );
@@ -175,7 +175,7 @@ export default function Produtos(){
                           {collectionFilters.map((collection) => {
                                 return (
                                     <div className={styles.tagprod}>
-                                        {collection} x
+                                        {collection}
                                         <button onClick={() => handleCategoriesChange(collection)}> x </button>
                                     </div>
                                 );
@@ -184,109 +184,117 @@ export default function Produtos(){
                     </div>
                     
                 </div>
-                <div className={styles.gridprodutos}>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    <div className={styles.produto}>
-                        <img src="\images\imgfem.png" alt="BD"  />
-                        <div className={styles.txtproduto}>
-                            <h3>Blvck Mohair Branded Sweater</h3>
-                            <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
-                            <p><span>X Itens em estoque</span></p>
-                        </div>
-                    </div>
-                    </div>
-                    <div className={styles.numeracaoPagProd}>
-                    {'<'}<div className={styles.num}>1</div>{'>'}
-                    </div>
-                </div>
 
+                {notFound ? (
+                            <div>
+                                <h2>Nenhum item encontrado</h2>
+                                <p>Tente novamente para encontrar o que você precisa</p>
+                            </div>
+                            
+                        ) : (
+                            <div className={styles.gridprodutos}>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.produto}>
+                                    <img src="\images\imgfem.png" alt="BD"  />
+                                    <div className={styles.txtproduto}>
+                                        <h3>Blvck Mohair Branded Sweater</h3>
+                                        <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
+                                        <p><span>X Itens em estoque</span></p>
+                                    </div>
+                                </div>
+                                <div className={styles.numeracaoPagProd}>
+                                {'<'}<div className={styles.num}>1</div>{'>'}
+                                </div>
+                            </div>
+                        )}
+                </div>
             </section>
 
         <Footer/>

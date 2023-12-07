@@ -5,7 +5,7 @@ import { useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import styles from './page.module.css';
-
+import EditProd from "../components/editProd";
 
 export default function Edicao(){
 
@@ -14,6 +14,7 @@ export default function Edicao(){
     const handleClick = () => {
         setVisivel(!visivel);
     }
+    
     return(
         <>
         <Header />
