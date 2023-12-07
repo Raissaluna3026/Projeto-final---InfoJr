@@ -190,10 +190,21 @@
         bottom: 40px;
     }
     .filtros{
+        width: 20%;
+    }
+    .pesquisaprod{
+        width: 70%;
+    }
+    .pesquisaprod p{
+        width: 30%;
+        text-align: center;
+    }
+    .pesquisaprod input{
+        width: 100%;
         align-self: flex-start;
     }
-    .intprod{
-        width: 225px;
+    .inptprod{
+        width: 100%;
     }
     .gridprodutos2{
         grid-template-columns: 1fr 1fr ;
@@ -201,8 +212,9 @@
     }
     .filtragem{
         width: 100%;
-        justify-content: center;
-    }
+        flex-direction: row;
+        justify-content: space-between;
+    } 
     .inptbtn{
         flex-direction: column-reverse;
     }
@@ -210,5 +222,11 @@
         width: 165px;
         height: 165px;
         object-fit: cover;
+    }
+    .invprod{
+        width: 300px;
+        position: absolute;
+        bottom: 24%;
+        right: 11%;
     }
 }

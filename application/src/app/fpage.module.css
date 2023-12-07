@@ -550,8 +550,10 @@
   .fCartOtherProdItems {
     width: 500px;
   }
-
-  .fCartRecentItems {
-    width: 500px;
+  .fCartRecent{
+    width: 100%;
+  }
+  .fCartItems{
+    width: 100%;
   }
 }
