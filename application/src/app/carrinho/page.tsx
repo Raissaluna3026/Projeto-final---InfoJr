@@ -90,7 +90,7 @@ function page() {
           <div className={styles.fCartRecentItems}>
             <div className={styles.fCartRecentItem}>
               <img src="\images\products\blvcMohairBrandedSweater.png" width={265} alt="" />
-              <div>
+              <div className={styles.fCartRecentItem}>
                 <h3>Blvck Mohair Branded Sweater</h3>
                 <p>R$ 646,00</p>
                 <p>2 itens em estoque</p>
@@ -99,7 +99,7 @@ function page() {
             </div>
             <div className={styles.fCartRecentItem}>
               <img src="\images\products\blvcMohairBrandedSweater.png" width={265} alt="" />
-              <div>
+              <div className={styles.fCartRecentItem}>
                 <h3>Blvck Mohair Branded Sweater</h3>
                 <p>R$ 646,00</p>
                 <p>2 itens em estoque</p>
@@ -108,7 +108,7 @@ function page() {
             </div>
             <div className={styles.fCartRecentItem}>
               <img src="\images\products\blvcMohairBrandedSweater.png" width={265} alt="" />
-              <div>
+              <div className={styles.fCartRecentItem}>
                 <h3>Blvck Mohair Branded Sweater</h3>
                 <p>R$ 646,00</p>
                 <p>2 itens em estoque</p>
