@@ -20,7 +20,7 @@ export default function Bodyy(){
                     </div>
                     <div className={styles.leftgrand}>
                         <img src="\icons\arrow_back.svg" alt="" className={styles.seta} />
-                        <img src="\images\img grande.png" alt="" />
+                        <img src="\images\img grande.png" alt="" className={styles.produtoimg}/>
                     </div>
                 </div>
                 <div className={styles.divright}>

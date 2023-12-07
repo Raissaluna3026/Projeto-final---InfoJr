@@ -493,6 +493,10 @@
     .spana{
         font-size: 28px;
     }
+    .spana::before{
+        bottom: 10px;
+        right: -5px;
+    }
     .gridprodutos{
         grid-template-columns: 1fr 1fr ;
         grid-template-rows: 1fr 1fr 1fr;
