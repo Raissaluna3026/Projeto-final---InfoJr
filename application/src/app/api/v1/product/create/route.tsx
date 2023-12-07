@@ -27,6 +27,7 @@ enum Tags {
 
 interface Product {
     quantity: number;
+    size: string,
     name: string,
     totalPrice: number;
     discountPrice: number;
@@ -70,6 +71,7 @@ export async function POST(req: Request, res: NextResponse){
                 name: data.name,
                 totalPrice: data.totalPrice,
                 discountPrice: data.discountPrice,
+                size: data.size,
                 quantity: data.discountPrice,
                 images: data.images,
                 gender: data.gender,
@@ -82,7 +84,7 @@ export async function POST(req: Request, res: NextResponse){
         return NextResponse.json({message: "Produto inserido"}, {status: 201})
     } catch (error) {
         console.log(error)
-        return NextResponse.json({message: "Falha ao inserir elemento no banco de dados"}, {status: 500})
+        return NextResponse.json({message: "Falha ao inserir elemento no banco de dados" }, {status: 500})
     }
     
 
