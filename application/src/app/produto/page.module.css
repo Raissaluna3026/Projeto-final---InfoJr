@@ -1,0 +1,278 @@
+/*HOMEPAGE - pagina 2 - parte 1*/
+.homepage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sec{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    margin-top: 100px;
+}
+.divleft{
+    display: flex;
+    gap: 20px;
+}
+.leftpeq{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.quant{
+    width: 206px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.seta{
+    position: absolute;
+    margin-top: -38px;
+}
+.divright{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.divright h5{
+    font-family: "Inter";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+}
+
+.inptxt select {
+    width: 80px;
+    height: 35px;
+    border: 1px solid var(--c10, #1B1B1B);
+    margin-top: 10px;
+}
+.botao{
+    display: flex;
+    gap: 16px;
+}
+.botao button{
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: #1B1B1B;
+    color: white;
+    text-align: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    box-shadow: 0px 0px 0px 0px #BDBDBD;
+    border: 0px;
+}
+.fav{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.divright p{
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: 0.048px;
+}
+.inptfinal{
+    display: flex;
+    gap: 16px;
+}
+.inptfinal input{
+    display: flex;
+    border: 1px solid var(--c10, #1B1B1B);
+    width: 220px;
+    align-items: flex-start;
+    padding: 10px;
+    align-items: center;
+    font-family: "Cabinet Grotesk";
+    font-size: 14px;
+    font-style: normal;
+    line-height: 150%; /* 21px */
+}
+.setta{
+    width: 25px;
+    border: 1px solid var(--c10, #1B1B1B);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    width: 90%;
+    margin-top: 100px;
+}
+.div1 h2 {
+    color: var(--c10, #1B1B1B);
+    text-align: center;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    /* 59px */
+    letter-spacing: -1.18px;
+    height: 68px;
+
+}
+.descricao{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tag{
+    display: flex;
+    gap: 5px;
+}
+.tag p {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--c10, #1B1B1B);
+
+}
+.btn2{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn2 button{
+    display: flex;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: var(--c10, #FFF);
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    color: #1B1B1B;
+    font-family: "Cabinet Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    border: 1px solid var(--c10, black);
+
+}
+.spana {
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+    margin: 20px;
+}
+
+.spana::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    right: -10px;
+    width: 105%;
+    height: 20%;
+    background-color: #D1D1D1;
+}
+/*HOMEPAGE - pagina 2 - parte 2*/
+.gridprodutos2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+.btn3{
+    height: 25px;
+    margin-top: 18px;
+}
+.btn3 button{
+    display: flex;
+    width: 211px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: var(--c10, #1B1B1B);
+    box-shadow: 8px 8px 0px 0px #BDBDBD;
+    color: white;
+    font-family: "Cabinet Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/*HOMEPAGE - pagina 2 - parte 3*/
+.gridprodutos3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.images {
+    display: flex;
+    gap: 15px;
+}
+
+.images p {
+    position: absolute;
+    margin-top: -60px;
+    color: #F9F9F9;
+    margin-left: 20px;
+    color: var(--c2, #F9F9F9);
+    font-family: Cabinet Grotesk;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.left {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.produto img {
+    width: 100%;
+}
+@media (max-width: 600px){
+    .sec{
+        flex-direction: column;
+    }
+    .divleft{
+        flex-direction: column-reverse;
+    }
+    .leftpeq{
+        flex-direction: row;
+    }
+    .produtoimg{
+        width: 345px;
+        height: 345px;
+        object-fit: cover;
+    }
+    .gridprodutos2{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+    }
+    .gridprodutos3{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    
+}

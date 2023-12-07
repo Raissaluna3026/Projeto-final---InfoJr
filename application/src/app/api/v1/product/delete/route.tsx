@@ -19,6 +19,7 @@ enum Tags {
 
 interface Product {
     quantity: number;
+    size: string,
     name: string,
     totalPrice: number;
     discountPrice: number;
