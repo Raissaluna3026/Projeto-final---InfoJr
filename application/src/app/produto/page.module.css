@@ -251,3 +251,28 @@
 .produto img {
     width: 100%;
 }
+@media (max-width: 600px){
+    .sec{
+        flex-direction: column;
+    }
+    .divleft{
+        flex-direction: column-reverse;
+    }
+    .leftpeq{
+        flex-direction: row;
+    }
+    .produtoimg{
+        width: 345px;
+        height: 345px;
+        object-fit: cover;
+    }
+    .gridprodutos2{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+    }
+    .gridprodutos3{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    
+}
