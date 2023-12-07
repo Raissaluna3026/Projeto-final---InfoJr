@@ -57,7 +57,7 @@ export default function Header(){
                     <a href="#">Sobre</a>
                 </div>
                 <div className={styles.divicons}>
-                    <a href="#"> <img src="\icons\shopping_cart.svg" alt="shopping" /></a>
+                    <a href="/carrinho"> <img src="\icons\shopping_cart.svg" alt="shopping" /></a>
                     <a href="#"><img src="\icons\favorite_border.svg" alt="fav" /></a>
                     <a href="/editar"><img src="\icons\person_outline.svg" alt="person" /></a>
                     <div className={styles.menu}>
