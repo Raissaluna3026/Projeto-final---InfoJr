@@ -1,0 +1,1 @@
+INSERT INTO collections (id, "name") VALUES ("a", "roupas");

@@ -1,10 +1,10 @@
 services:
-  ecommerce:
-    build: ./application
-    ports:
-      - 4000:3000
-    volumes:
-      - ./application:/app
+  # ecommerce:
+  #   build: ./application
+  #   ports:
+  #     - 4000:3000
+  #   volumes:
+  #     - ./application:/app
 
   database:
     image: postgres:latest

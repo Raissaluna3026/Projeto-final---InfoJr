@@ -2,9 +2,8 @@ import { NextApiResponse } from 'next';
 import { prisma } from '../../../../../../prisma/Client/Prisma'
 import { GENDER, PRODUCTTYPE, TAG } from "@prisma/client" 
 import { NextResponse } from 'next/server';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import { randomUUID } from 'crypto';
+
+
 
 enum Gender {
     MASCULINO = "MASCULINO",
@@ -20,55 +19,33 @@ enum Tags {
     FEMININO = "FEMININO"
 }
 
+type Stock = {
+    P?: string,
+    M?: string,
+    G?: string,
+    GG?: string,
+    XGG?: string,
+  }
 interface Product {
     quantity: number;
-    size: string,
     name: string,
-    totalPrice: number;
-    discountPrice: number;
+    stockSize: Stock[];
+    totalPrice: string;
+    discountPrice: string;
     images?: File[],
     gender: Gender;
     productType: PRODUCTTYPE;
     tags: Tags[];
-    collection: string
+    collection: string,
+    description: string,
 }
 
-const generateFileNameId = () => (new Date + randomUUID())
-
-const s3 = new S3Client({
-    region: "sa-east-1",
-    credentials: {
-        accessKeyId: "AKIA45PZ7ID23KUPPMGC",
-        secretAccessKey: "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"
-    }
-})
-
-const putObjectCommand = new PutObjectCommand({
-    Bucket: "ecommerce-product-images-infojr",
-    Key: 'test-file3'
-})
-
-const acceptedTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/webp"
-]
 
 export async function POST(req: Request, res: NextResponse){
     const data: Product = await req.json()
-
-    const signedUrl = await getSignedUrl(s3, putObjectCommand, {
-        expiresIn: 60,
-    })
-
-    await fetch(signedUrl, {
-        method: "PUT",
-        body: file, //passar arquivo de imagem
-        headers: {
-            "Content-Type": file.type //passar tipo do arquivo de imagem
-        }
-
-    })
+    data.gender = Gender.MASCULINO
+    data.productType = PRODUCTTYPE.CAMISA
+    
 
     if(!data.name){
         return NextResponse.json({ message: "Você deve inserir um nome válido!"}, {status: 400})       
@@ -82,6 +59,8 @@ export async function POST(req: Request, res: NextResponse){
         return NextResponse.json({ message: "Você deve inserir gênero!"}, {status: 400})       
     }
 
+    // console.log(parseFloat(data.totalPrice))
+    // return NextResponse.json({message: "Produto inserido"}, {status: 201})
     try {
         //Busca id da coleção que receberá o produto
         const collection = await prisma.collection.findUnique({
@@ -95,14 +74,14 @@ export async function POST(req: Request, res: NextResponse){
         }
         
         //insere o produto na coleção correta
+        //adicionar stock
+        //stock: data.stockSize,
         const product = await prisma.product.create({
             data: {
                 name: data.name,
-                totalPrice: data.totalPrice,
-                discountPrice: data.discountPrice,
-                size: data.size,
-                quantity: data.discountPrice,
-                images: [signedUrl.split("?")[0]], //salva string da imagem guardada
+                totalPrice: parseFloat(data.totalPrice),
+                discountPrice: parseFloat(data.discountPrice),
+                quantity: parseInt(data.discountPrice),
                 gender: data.gender,
                 productType: PRODUCTTYPE.CAMISA,
                 tags: [ TAG.CAMISA, TAG.MASCULINO],
@@ -110,7 +89,7 @@ export async function POST(req: Request, res: NextResponse){
             }
 
         })    
-        return NextResponse.json({message: "Produto inserido"}, {status: 201})
+        return NextResponse.json({message: "Produto inserido", id: product.id}, {status: 201})
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: "Falha ao inserir elemento no banco de dados" }, {status: 500})

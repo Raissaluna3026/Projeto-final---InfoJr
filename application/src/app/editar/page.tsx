@@ -6,9 +6,10 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import styles from './page.module.css';
 import EditProd from "../components/editProd";
+import CreateProd from "../components/createProd";
 
 export default function Edicao(){
-    const [openEditProductModal, setOpenEditProductModal] = useState(false)
+    const [openCreateProductModal, setOpenCreateProductModal] = useState(false)
     const [visivel, setVisivel] = useState(false);
 
     const handleClick = () => {
@@ -18,7 +19,7 @@ export default function Edicao(){
     return(
         <>
         <Header />
-        {openEditProductModal && <EditProd closeModal={setOpenEditProductModal} />}
+        {openCreateProductModal && <CreateProd closeModal={setOpenCreateProductModal} />}
         <section className={styles.homepage}>            
                 <div className={styles.div1}>
                 <h2 className={styles.spana}> Edição </h2>
@@ -29,7 +30,7 @@ export default function Edicao(){
                                 <input type="text"  placeholder="Pesquisar"/>
                                 <img src="\icons\search.svg" alt="" />
                             </div>
-                            <div className={styles.criarprod} onClick={() => setOpenEditProductModal(true)} style={{cursor:'pointer'}}>
+                            <div className={styles.criarprod} onClick={() => setOpenCreateProductModal(true)} style={{cursor:'pointer'}}>
                                 Criar produto
                                 <img src="\images\imgadd.svg" alt="" />
                             </div>
