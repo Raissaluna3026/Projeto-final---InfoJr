@@ -6,7 +6,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 function page() {
-  const [chart, setChart] = useState(["oii", "oiii2"]);
+  const [chart, setChart] = useState(["oii", "oiii2"]); //exemplo p ser desconsiderado, vai ser uma array de produtos
   const [emptyChart, setEmptyChart] = useState(false);
   const [finalPrice, setFinalPrice] = useState();
 

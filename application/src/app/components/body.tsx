@@ -38,6 +38,8 @@ export default function Body(){
                     </div>
                 </div>
             </div>
+            
+            {/* PRODUTOS */}
             <div className={styles.div1}>
                 <h2 className={styles.spana}> Produtos </h2>
                 <div className={styles.gridprodutos}>

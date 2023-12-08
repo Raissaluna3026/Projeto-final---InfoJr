@@ -26,6 +26,7 @@ interface Product {
     name: string,
     totalPrice: number;
     discountPrice: number;
+    description: string;
     images?: File[],
     gender: Gender;
     productType: PRODUCTTYPE;
@@ -102,6 +103,7 @@ export async function POST(req: Request, res: NextResponse){
                 discountPrice: data.discountPrice,
                 size: data.size,
                 quantity: data.discountPrice,
+                description: data.description,
                 images: [signedUrl.split("?")[0]], //salva string da imagem guardada
                 gender: data.gender,
                 productType: PRODUCTTYPE.CAMISA,

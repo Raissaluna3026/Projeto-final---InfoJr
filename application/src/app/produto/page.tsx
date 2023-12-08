@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable @next/next/no-img-element */
 
@@ -5,8 +6,29 @@ import Link from 'next/link';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import styles from './page.module.css';
+import { useState } from 'react';
+import { Product } from '@prisma/client';
 
 export default function Bodyy(){
+    const [product, setProduct] = useState<Product>();
+
+    // buscar dados do produto no banco de dados
+    const fetchProduct = async (id: number) => {
+        try {
+            const res = await fetch(`../api/v1/product/get?id=${id}`);
+
+            if (!res.ok) {
+                throw new Error('Erro ao buscar produto');
+            }
+            
+            const data: Product = await res.json();
+
+            setProduct(data);
+          } catch (error) {
+            console.log('fetch error: ', error);
+        }
+    } 
+
     return(
         <>
         <Header/>
@@ -90,6 +112,8 @@ export default function Bodyy(){
                     </div>
                 </div>
             </section>
+
+            {/* produtos semelhantes */}
             <section className={styles.div1}>
             <h2 className={styles.spana}> Produtos Semelhantes</h2>
                 <div className={styles.gridprodutos2}>
@@ -130,6 +154,8 @@ export default function Bodyy(){
                     </button>
                 </div>
             </section>
+            
+            {/* outros produtos */}
             <section className={styles.div1}>
             <h2 className={styles.spana}> Outros produtos</h2>
                 <div className={styles.gridprodutos3}>

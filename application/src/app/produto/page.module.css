@@ -255,16 +255,28 @@
     .sec{
         flex-direction: column;
     }
+    .div1 h2{
+        font-size: 28px;
+    }
     .divleft{
         flex-direction: column-reverse;
     }
     .leftpeq{
         flex-direction: row;
     }
+    .spana::before{
+        bottom: 40px;
+    }
+    .filtros{
+        align-self: flex-start;
+    }
     .produtoimg{
         width: 345px;
         height: 345px;
         object-fit: cover;
+    }
+    .intprod{
+        width: 225px;
     }
     .gridprodutos2{
         grid-template-columns: 1fr 1fr ;
@@ -274,5 +286,4 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     }
-    
 }
