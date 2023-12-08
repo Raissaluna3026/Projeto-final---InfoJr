@@ -1,14 +1,27 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
-import React, {useState} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import styles from '../fpage.module.css'
 import Header from '../components/header'
+import Link from 'next/link';
 import Footer from '../components/footer'
+import ChartContext from '../contexts/chartContext'
+
+interface QuantitiesState {
+  [productId: number]: number;
+}
+
+interface SizesState {
+  [productId: number]: string;
+}
 
 function page() {
-  const [chart, setChart] = useState(["oii", "oiii2"]); //exemplo p ser desconsiderado, vai ser uma array de produtos
+  // const [chart, setChart] = useState(["oii", "oiii2"]); //exemplo p apagar depois
   const [emptyChart, setEmptyChart] = useState(false);
-  const [finalPrice, setFinalPrice] = useState();
+  const [finalPrice, setFinalPrice] = useState<number>(0);
+  const [quantities, setQuantities] = useState<QuantitiesState>({});
+  const [sizes, setSizes] = useState<SizesState>({});
+  const { chartProducts, removeAllProducts } = useContext(ChartContext);
 
   const handleZipCode = (e: { target: any }) => {
     let input = e.target
@@ -23,9 +36,48 @@ function page() {
   }
 
   const resetChart = () =>{
-    setChart([]);
+    // setChart([]);
+    removeAllProducts();
     setEmptyChart(true);
   }
+
+  const handleBuy = () =>{
+    // pegar o produto pelo id e tamanho e subtrair a quantidade
+    // se a quantidade for igual a quantidade do estoque, remove o produto do banco de dados?
+    
+    removeAllProducts();
+    setEmptyChart(true);
+  }
+
+  const updateQuantity = (productId: number, event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(event.target.value) || 0;
+    
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [productId]: newQuantity,
+    }));
+  }
+
+  const updateSize = (productId: number, event: React.ChangeEvent<HTMLInputElement>) => {
+    const newSize = event.target.value;
+    setSizes((prevSizes) => ({
+      ...prevSizes,
+      [productId]: newSize,
+    }))
+  }
+
+  const calculateFinalPrice = () => {
+    let amount: number = 0;
+    chartProducts.forEach((product) => {
+      amount += product.discountPrice * quantities[product.id];
+    })
+    
+    setFinalPrice(amount);
+  }
+
+  useEffect(() => {
+    calculateFinalPrice();
+  }, [quantities]);
 
   return (
     <>
@@ -47,6 +99,33 @@ function page() {
 
               {/* itens */}
               <div className={styles.fCartItems}>
+                {/* mapeamento pra tirar do comentário dps */}
+                {/* {chartProducts.map((item) => {
+                  return(
+                    <div className={styles.fCartItem}>
+                      <img src="\images\products\blvcMohairBrandedSweater.png" width={75} alt='Prod' />
+                      <div className={styles.fCartItemInfo}>
+                        <h3>{item.name}</h3>
+                        <p>R$ {item.discountPrice.toFixed(2).replace('.',',')}</p>
+                        <p>{item.quantity} itens em estoque</p>
+                        <div className={styles.fCartInput}>
+                          <div className={styles.fCartInputWrapper}>
+                            <label htmlFor="Quantidade">Quantidade</label>
+                            <input type="number" name="Quantidade" 
+                                  value={quantities[item.id] ? quantities[item.id] : 0} 
+                                  onChange={(e) => updateQuantity(item.id, e)}/>
+                          </div>
+                          <div className={styles.fCartInputWrapper}>
+                            <label htmlFor="Tamanho">Tamanho</label>
+                            <input type="text" name="Tamanho" 
+                                  value={sizes[item.id] ? sizes[item.id] : ""}
+                                  onChange={(e) => updateSize(item.id, e)} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })} */}
                 <div className={styles.fCartItem}>
                   <img src="\images\products\blvcMohairBrandedSweater.png" width={75} alt='Prod' />
                   <div className={styles.fCartItemInfo}>
@@ -90,7 +169,7 @@ function page() {
                 <div className={styles.fCartTotal}>
                   <div className={styles.fCartTotalInfo}>
                     <p>Subtotal</p>
-                    <h1>R$ 0,00</h1>
+                    <h1>R$ {finalPrice.toFixed(2).replace('.', ',')}</h1> 
                     <button>Comprar Agora</button>
                   </div>
                   <br />
@@ -105,7 +184,7 @@ function page() {
                   </div>
                 </div>
                 <div className={styles.fCartButtons}>
-                  <button>Continuar comprando</button>
+                  <Link  href={"/"}> <button>Continuar comprando</button> </Link>
                   <p onClick={resetChart}>Limpar carrinho</p>
                 </div>
               </div>

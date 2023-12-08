@@ -82,6 +82,12 @@ export default function Produtos(){
         }
     };
 
+    const onButtonClickHandler = () => {
+        if(search){
+          onSearchHandler(search);  
+        }
+    }
+
     // detecta digitação na barra de pesquisa
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -191,7 +197,7 @@ export default function Produtos(){
                     <div className={styles.pesquisaprod}>
                         <div className={styles.inptprod}>
                             <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
-                            <img src="\icons\search.svg" alt="" />
+                            <img src="\icons\search.svg" alt="" onClick={onButtonClickHandler} />
                         </div>
                         <p>{numberFound} Itens encontrados!</p>
                     </div>
@@ -297,7 +303,7 @@ export default function Produtos(){
                                             <img src={product.images[0]} alt="BD"  />
                                             <div className={styles.txtproduto}>
                                                 <h3>{product.name}</h3>
-                                                <p>R$ {product.discountPrice},00<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
+                                                <p>R$ {product.discountPrice.toFixed(2).replace('.', ',')}<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
                                                 <p><span>{product.quantity} Itens em estoque</span></p>
                                             </div>
                                         </div>

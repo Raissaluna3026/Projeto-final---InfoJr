@@ -83,6 +83,12 @@ export default function Edicao(){
         }
     };
 
+    const onButtonClickHandler = () => {
+        if(search){
+          onSearchHandler(search);  
+        }
+    }
+
     // detecta digitação na barra de pesquisa
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
@@ -192,7 +198,7 @@ export default function Edicao(){
                         <div className={styles.inptbtn}>
                             <div className={styles.inptprod}>
                                 <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
-                                <img src="\icons\search.svg" alt="" />
+                                <img src="\icons\search.svg" alt="" onClick={onButtonClickHandler} />
                             </div>
                             <div className={styles.criarprod} onClick={() => setOpenCreateProductModal(true)} style={{cursor:'pointer'}}>
                                 Criar produto

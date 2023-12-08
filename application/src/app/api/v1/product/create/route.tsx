@@ -32,12 +32,12 @@ interface Product {
     stockSize: Stock[];
     totalPrice: string;
     discountPrice: string;
-    description: string;
     images?: File[],
     gender: Gender;
     productType: PRODUCTTYPE;
     tags: Tags[];
     collection: string,
+    description: string;
 }
 
 
@@ -86,7 +86,7 @@ export async function POST(req: Request, res: NextResponse){
                 productType: PRODUCTTYPE.CAMISA,
                 tags: [ TAG.CAMISA, TAG.MASCULINO],
                 collectionId: collection.id,
-                description: data.description
+                description: data.description,
             }
 
         })    
