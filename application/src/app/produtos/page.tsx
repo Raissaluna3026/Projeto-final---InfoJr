@@ -186,8 +186,7 @@ export default function Produtos(){
                 </div>
 
                 {notFound ? (
-                            <div className={styles.semitens}>
-                                <img src="\images\search_off.svg" alt="" />
+                            <div>
                                 <h2>Nenhum item encontrado</h2>
                                 <p>Tente novamente para encontrar o que você precisa</p>
                             </div>
