@@ -8,8 +8,8 @@ export async function GET(req: NextRequest, res: NextResponse){
         const tags = req.nextUrl.searchParams.getAll("tags");
         const collections = req.nextUrl.searchParams.getAll("collections");
 
-        console.log(tags);
-        console.log(collections);
+        console.log("tags: ", tags);
+        console.log("collections: ", collections);
 
         if (!tags && !collections) {
           return NextResponse.json({ error: 'At least one of tags or collections must be provided' } , {status: 400});

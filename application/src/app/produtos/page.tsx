@@ -44,6 +44,7 @@ export default function Produtos(){
             const res = await fetch("../api/v1/product/all");
 
             if (!res.ok) {
+                setNumberFound(0);
                 throw new Error('Erro ao buscar produtos');
             }
             
@@ -153,10 +154,12 @@ export default function Produtos(){
 
             
             if (!res.ok) {
+                setNumberFound(0);
                 throw new Error('Erro ao filtrar produtos');
             }
             
             const filteredProducts: Product[] = await res.json();
+            console.log(filteredProducts);
 
             setProducts(filteredProducts);
             setNumberFound(filteredProducts.length);
