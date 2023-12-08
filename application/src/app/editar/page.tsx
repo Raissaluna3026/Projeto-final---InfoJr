@@ -295,7 +295,8 @@ export default function Edicao(){
 
 
                 {notFound ? (
-                            <div>
+                            <div className={styles.semitens}>
+                                <img src="\images\search_off.svg" alt="" />
                                 <h2>Nenhum item encontrado</h2>
                                 <p>Tente novamente para encontrar o que você precisa</p>
                             </div>
