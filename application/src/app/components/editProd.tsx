@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import styles from '../fpage.module.css';
 
+interface EditProdProps {
+  closeModal: Dispatch<SetStateAction<boolean>>;
+}
 
-export default function EditProd() {
+export default function EditProd({closeModal} : EditProdProps) {
   return (
     <>
       <div className={styles.fcontainer}>
@@ -19,9 +22,9 @@ export default function EditProd() {
               <div className={styles.fImgWrap}>
                 <img src="\images\products\blvcMohairBrandedSweater.png" alt="" className={styles.fImgEdit} />
                 <div>
-                  <button className={styles.fSaveBtn}>Salvar</button>
-                  <button className={styles.fEditBtn}>Excluir</button>
-                  <button className={styles.fEditBtn}>Cancelar</button>
+                  <button className={styles.fSaveBtn} onClick={() => closeModal(false)}>Salvar</button>
+                  <button className={styles.fEditBtn} onClick={() => closeModal(false)}>Excluir</button>
+                  <button className={styles.fEditBtn} onClick={() => closeModal(false)}>Cancelar</button>
                 </div>
               </div>
             </div>

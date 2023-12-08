@@ -6,6 +6,7 @@
     flex-direction: column;
     
 }
+
 .div1 {
     display: flex;
     flex-direction: column;
@@ -178,4 +179,55 @@
     display: flex;
     gap: 5px;
     margin-top: 60px;
+}
+@media (max-width: 600px){
+    .sec{
+        flex-direction: column;
+    }
+    .div1 h2{
+        font-size: 28px;
+    }
+    .spana::before{
+        bottom: 40px;
+    }
+    .filtros{
+        width: 20%;
+    }
+    .pesquisaprod{
+        width: 70%;
+    }
+    .pesquisaprod p{
+        width: 30%;
+        text-align: center;
+    }
+    .pesquisaprod input{
+        width: 100%;
+        align-self: flex-start;
+    }
+    .inptprod{
+        width: 100%;
+    }
+    .gridprodutos2{
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .filtragem{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    } 
+    .inptbtn{
+        flex-direction: column-reverse;
+    }
+    .produto img{
+        width: 165px;
+        height: 165px;
+        object-fit: cover;
+    }
+    .invprod{
+        width: 300px;
+        position: absolute;
+        bottom: 24%;
+        right: 11%;
+    }
 }

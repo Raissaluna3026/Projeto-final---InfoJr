@@ -9,6 +9,7 @@ import EditProd from "../components/editProd";
 import { Product, TAG } from "@prisma/client";
 
 export default function Edicao(){
+    const [openEditProductModal, setOpenEditProductModal] = useState(false)
     const [visivel, setVisivel] = useState(false);
     const [products, setProducts] = useState<Product[]>([]); // lista de produtos que estarão visíveis na tela
     const [search, setSearch] = useState("");
@@ -181,6 +182,7 @@ export default function Edicao(){
     return(
         <>
         <Header />
+        {openEditProductModal && <EditProd closeModal={setOpenEditProductModal} />}
         <section className={styles.homepage}>            
                 <div className={styles.div1}>
                 <h2 className={styles.spana}> Edição </h2>
@@ -191,7 +193,7 @@ export default function Edicao(){
                                 <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
                                 <img src="\icons\search.svg" alt="" />
                             </div>
-                            <div className={styles.criarprod} style={{cursor:'pointer'}}>
+                            <div className={styles.criarprod} onClick={() => setOpenEditProductModal(true)} style={{cursor:'pointer'}}>
                                 Criar produto
                                 <img src="\images\imgadd.svg" alt="" />
                             </div>
