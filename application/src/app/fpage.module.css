@@ -1,9 +1,12 @@
 .fcontainer {
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: #808080;
+  align-items: center;
+  background-color: #80808051;
+  position: absolute;
+  z-index: 10;
 }
 
 .fDiv {
@@ -550,8 +553,10 @@
   .fCartOtherProdItems {
     width: 500px;
   }
-
-  .fCartRecentItems {
-    width: 500px;
+  .fCartRecent{
+    width: 100%;
+  }
+  .fCartItems{
+    width: 100%;
   }
 }
