@@ -127,11 +127,8 @@ export default function Produtos(){
             const collectionsConverted = collectionFilters.map((collection) => {return encodeURIComponent(collection)});
 
             // converte para forma compativel para requisição
-            console.log(collectionFilters);
             const urlTags = tagsConverted.join(',');
             const urlCollections = collectionsConverted.join(',');
-            console.log(urlTags);
-            console.log(urlCollections);
 
             const res = await fetch(`../api/v1/product/filter?tags=${urlTags}&collections=${urlCollections}`);
 
@@ -269,7 +266,20 @@ export default function Produtos(){
                             </div>
                             
                         ) : (
+                            // itens encontrados ou todos os produtos
                             <div className={styles.gridprodutos}>
+                                {/* {products.map((product) => {
+                                    return(
+                                        <div className={styles.produto}>
+                                            <img src={product.images[0]} alt="BD"  />
+                                            <div className={styles.txtproduto}>
+                                                <h3>{product.name}</h3>
+                                                <p>R$ {product.discountPrice},00<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
+                                                <p><span>{product.quantity} Itens em estoque</span></p>
+                                            </div>
+                                        </div>
+                                    )
+                                })} */}
                                 <div className={styles.produto}>
                                     <img src="\images\imgfem.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
