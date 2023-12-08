@@ -123,7 +123,7 @@ export default function Produtos(){
             case "acessórios":
             return TAG.ACESSORIOS;
             case "calças":
-            return TAG.CALCA;
+            return TAG.CALCAS;
             case "casacos":
             return TAG.CASACOS;
             case "feminino":
