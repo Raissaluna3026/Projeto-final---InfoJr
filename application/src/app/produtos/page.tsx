@@ -21,6 +21,23 @@ export default function Produtos(){
         setVisivel(!visivel);
     }
 
+    // converte uma array apenas com produtos únicos (sem nomes repetidos por causa do tamanho)
+    const getUniqueProducts = (productList: Product[]) => {
+        const uniqueNamesSet = new Set();
+
+        const uniqueProducts = productList.filter((product) => {
+            if (uniqueNamesSet.has(product.name)){
+                return false; // Nome repetido, exclui da lista
+            }
+            else{
+                uniqueNamesSet.add(product.name);
+                return true;
+            }
+        });
+
+        return uniqueProducts;
+    }
+
     // pega todos os produtos do banco de dados
     const fetchProducts = async () => {
         try {
@@ -31,6 +48,8 @@ export default function Produtos(){
             }
             
             const data: Product[] = await res.json();
+
+            // usar função de não repetir produtos aqui.
 
             setProducts(data);
             setNumberFound(data.length);
@@ -255,8 +274,8 @@ export default function Produtos(){
                                 );
                             })} 
                         </div>
+
                     </div>
-                    
                 </div>
 
                 {notFound ? (

@@ -32,6 +32,6 @@ export async function GET(req: NextRequest, res: NextResponse){
         return NextResponse.json(filteredProducts);
     } catch (error) {
         console.error('Error filtering products:', error);
-        NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
+        return NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
     }
 }

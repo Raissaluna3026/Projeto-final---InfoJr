@@ -10,6 +10,6 @@ export async function GET(req: Request, res: NextResponse){
         
     } catch (error) {
         console.error('Error fetching all products:', error);
-        NextResponse.json({ msg: 'Internal Server Error' }, {status: 500});
+        return NextResponse.json({ msg: 'Internal Server Error' }, {status: 500});
     }
 }

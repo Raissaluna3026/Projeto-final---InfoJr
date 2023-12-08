@@ -53,7 +53,7 @@ export async function DELETE(req: NextRequest, res: Response) {
     return NextResponse.json({msg: "coleção deletada"}, {status: 201});
   } catch (error) {
     console.error('Error deleting collection by name:', error);
-    NextResponse.json({ msg: 'Internal Server Error' }, {status: 500});
+    return NextResponse.json({ msg: 'Internal Server Error' }, {status: 500});
   }
 }
 
@@ -79,7 +79,7 @@ export async function GET(req: NextRequest, res: Response) {
 
   } catch (error) {
     console.error("Erro ao obter os produtos da coleção:", error);
-    NextResponse.json({ msg: "Erro interno do servidor" }, {status: 500});
+    return NextResponse.json({ msg: "Erro interno do servidor" }, {status: 500});
   }
 }
 
@@ -127,7 +127,7 @@ export async function PUT(req: Request, res: Response) {
     return NextResponse.json({ message: 'Product moved to the new collection successfully' }, {status: 200});
   } catch (error) {
     console.error('Error moving product to a new collection by name:', error);
-    NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
+    return NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
   }
 }
 

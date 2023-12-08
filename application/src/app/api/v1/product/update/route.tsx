@@ -35,6 +35,6 @@ export async function PUT(req: Request, res: NextResponse){
 
     } catch (error) {
         console.error('Error updating product:', error);
-        NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
+        return NextResponse.json({ error: 'Internal Server Error' }, {status: 500});
     }
 }
