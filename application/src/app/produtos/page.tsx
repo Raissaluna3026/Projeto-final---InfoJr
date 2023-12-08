@@ -1,21 +1,21 @@
 "use client";
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import styles from './page.module.css';
 import { Product } from "@prisma/client";
-
-
+import { TAG } from "@prisma/client";
 
 export default function Produtos(){
     const [visivel, setVisivel] = useState(false);
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<Product[]>([]); // lista de produtos que estarão visíveis na tela
     const [search, setSearch] = useState("");
     const [notFound, setNotFound] = useState(false);
     const [collectionFilters, setCollectionFilters] = useState<string[]>([]);
     const [categoriesFilters, setCategoriesFilters] = useState<string[]>([]);
+    const [numberFound, setNumberFound] = useState<number>();
 
     const handleClick = () => {
         setVisivel(!visivel);
@@ -23,7 +23,20 @@ export default function Produtos(){
 
     // pega todos os produtos do banco de dados
     const fetchProducts = async () => {
-        // terminar
+        try {
+            const res = await fetch("../api/v1/product/all");
+
+            if (!res.ok) {
+                throw new Error('Erro ao buscar produtos');
+            }
+            
+            const data: Product[] = await res.json();
+
+            setProducts(data);
+            setNumberFound(data.length);
+          } catch (error) {
+            console.log('fetch error: ', error);
+        }
     }
 
     // altera ambiente do site de acordo com o que é digitado na barra de pesquisa
@@ -42,15 +55,16 @@ export default function Produtos(){
 
         if (result.length === 0) {
         setNotFound(true);
+        setNumberFound(0);
         } else {
         setProducts(result);
+        setNumberFound(result.length);
         }
     };
 
     // detecta digitação na barra de pesquisa
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
-        console.log(search);
 
         // se a barra estiver vazia
         if(e.target.value.length === 0) {
@@ -80,10 +94,73 @@ export default function Produtos(){
         }
     };
 
+
+    // função para converter a string da categoria para a string do enum TAG
+    const mapStringTOTag = (str: string) =>{
+        const lowerCaseStr = str.toLowerCase(); // Converte para minúsculas para garantir correspondência
+        switch (lowerCaseStr) {
+            case "camisetas":
+            return TAG.CAMISA;
+            case "acessórios":
+            return TAG.ACESSORIOS;
+            case "calças":
+            return TAG.CALCA;
+            case "casacos":
+            return TAG.CASACOS;
+            case "feminino":
+            return TAG.FEMININO;
+            case "masculino":
+            return TAG.MASCULINO;
+            default:
+            return null; // Retornar null para valores não correspondentes
+        }
+    }
+
+    // altera produtos mostrados com base em filtros
+    const handleFilterChange = async () => {
+        if(categoriesFilters.length != 0 || collectionFilters.length != 0){
+            // mudar valores do array para compativeis com tags
+            const tagsConverted = categoriesFilters.map(mapStringTOTag);
+            
+
+            // codifica possíveis strings com caracteres especiais
+            const collectionsConverted = collectionFilters.map((collection) => {return encodeURIComponent(collection)});
+
+            // converte para forma compativel para requisição
+            console.log(collectionFilters);
+            const urlTags = tagsConverted.join(',');
+            const urlCollections = collectionsConverted.join(',');
+            console.log(urlTags);
+            console.log(urlCollections);
+
+            const res = await fetch(`../api/v1/product/filter?tags=${urlTags}&collections=${urlCollections}`);
+
+            
+            if (!res.ok) {
+                throw new Error('Erro ao filtrar produtos');
+            }
+            
+            const filteredProducts: Product[] = await res.json();
+
+            setProducts(filteredProducts);
+            setNumberFound(filteredProducts.length);
+        }
+    }
+
     const resetFilters = () =>{
         setCategoriesFilters([]);
         setCollectionFilters([]);
     }
+
+    // -----------------------------
+    // Atualizações Dinâmicas
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    useEffect(() => {
+        handleFilterChange();
+    }, [collectionFilters, categoriesFilters]);
 
     return(
         <>
@@ -97,7 +174,7 @@ export default function Produtos(){
                             <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
                             <img src="\icons\search.svg" alt="" />
                         </div>
-                        <p>23 Itens encontrados!</p>
+                        <p>{numberFound} Itens encontrados!</p>
                     </div>
                     <div className={styles.filtros}>
                         <div className={styles.filtro} onClick={() => handleClick()} style={{cursor:'pointer'}}>
@@ -162,9 +239,9 @@ export default function Produtos(){
                         {/* TAGS */}
                         <div className={styles.tagsprod}>
                             {/* CATEGORIAS */}
-                          {categoriesFilters.map((filter) => {
+                          {categoriesFilters.map((filter, index) => {
                                 return (
-                                    <div className={styles.tagprod}>
+                                    <div className={styles.tagprod} key={index}>
                                         {filter}
                                         <button onClick={() => handleCategoriesChange(filter)}> x </button>
                                     </div>
@@ -172,11 +249,11 @@ export default function Produtos(){
                             })}  
 
                             {/* COLEÇÕES */}
-                          {collectionFilters.map((collection) => {
+                          {collectionFilters.map((collection, index) => {
                                 return (
-                                    <div className={styles.tagprod}>
+                                    <div className={styles.tagprod} key={index}>
                                         {collection}
-                                        <button onClick={() => handleCategoriesChange(collection)}> x </button>
+                                        <button onClick={() => handleCollectionChange(collection)}> x </button>
                                     </div>
                                 );
                             })} 

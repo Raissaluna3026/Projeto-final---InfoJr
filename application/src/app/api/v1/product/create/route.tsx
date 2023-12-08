@@ -31,6 +31,7 @@ interface Product {
     name: string,
     totalPrice: number;
     discountPrice: number;
+    description: string;
     images?: string[];
     gender: Gender;
     productType: PRODUCTTYPE;
@@ -73,6 +74,7 @@ export async function POST(req: Request, res: NextResponse){
                 discountPrice: data.discountPrice,
                 size: data.size,
                 quantity: data.discountPrice,
+                description: data.description,
                 images: data.images,
                 gender: data.gender,
                 productType: PRODUCTTYPE.CAMISA,

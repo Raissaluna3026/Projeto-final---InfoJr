@@ -17,6 +17,7 @@ model Product {
   name String
   totalPrice Float
   discountPrice Float
+  description String
   images String[]
   gender GENDER
   productType PRODUCTTYPE
@@ -42,7 +43,7 @@ enum PRODUCTTYPE {
 }
 
 enum TAG {
-  CALCA
+  CALCAS
   CAMISA
   CASACOS
   ACESSORIOS

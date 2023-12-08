@@ -23,6 +23,7 @@ interface Product {
     name: string,
     totalPrice: number;
     discountPrice: number;
+    description: string;
     images?: string[];
     gender: Gender;
     productType: PRODUCTTYPE;
