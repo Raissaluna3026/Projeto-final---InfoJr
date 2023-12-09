@@ -121,7 +121,7 @@ export default function CreateProd({ closeModal }: CreateProdProps) {
 
     await fetch("http://localhost:3000/api/v1/product/save-image", {
       method: "POST",
-      body: JSON.stringify({id, images: linksToImages})
+      body: JSON.stringify({id: id, images: linksToImages})
     })
   }
 
