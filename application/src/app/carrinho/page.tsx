@@ -5,7 +5,8 @@ import styles from '../fpage.module.css'
 import Header from '../components/header'
 import Link from 'next/link';
 import Footer from '../components/footer'
-import ChartContext from '../contexts/chartContext'
+import { ChartContext } from '../contexts/chartContext';
+import { Product } from '@prisma/client';
 
 interface QuantitiesState {
   [productId: number]: number;
@@ -16,7 +17,7 @@ interface SizesState {
 }
 
 function page() {
-  // const [chart, setChart] = useState(["oii", "oiii2"]); //exemplo p apagar depois
+  const [chart, setChart] = useState<Product[]>([]); //exemplo p apagar depois
   const [emptyChart, setEmptyChart] = useState(false);
   const [finalPrice, setFinalPrice] = useState<number>(0);
   const [quantities, setQuantities] = useState<QuantitiesState>({});
@@ -36,7 +37,7 @@ function page() {
   }
 
   const resetChart = () =>{
-    // setChart([]);
+    setChart([]);
     removeAllProducts();
     setEmptyChart(true);
   }
@@ -45,13 +46,12 @@ function page() {
     // pegar o produto pelo id e tamanho e subtrair a quantidade
     // se a quantidade for igual a quantidade do estoque, remove o produto do banco de dados?
     
-    removeAllProducts();
+    // removeAllProducts();
     setEmptyChart(true);
   }
 
   const updateQuantity = (productId: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(event.target.value) || 0;
-    
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
       [productId]: newQuantity,
@@ -75,9 +75,48 @@ function page() {
     setFinalPrice(amount);
   }
 
+  // decodifica o campo size 
+  function decodeStringToObj(inputString: string): { [key: string]: number } {
+    const obj: { [key: string]: number } = {};
+  
+    // Divide a string em pares chave-valor separados por vírgula
+    const pairs = inputString.split(',');
+  
+    // Itera sobre cada par chave-valor e adiciona ao objeto
+    pairs.forEach((pair) => {
+      const [key, value] = pair.split(':');
+      const trimmedKey = key.trim();
+      const parsedValue = parseInt(value.trim(), 10);
+  
+      // Verifica se o valor é um número válido antes de adicionar ao objeto
+      if (!isNaN(parsedValue)) {
+        obj[trimmedKey] = parsedValue;
+      }
+    });
+  
+    return obj;
+  }
+
+
+  // retorna quantidade de estoque de um produto (somando quantidades de tamanhos diferentes)
+  const getAvailableUnits = (product: Product) => {
+    const sizeQuantity = decodeStringToObj(product.size);
+    let sum = 0;
+
+    for (const key in sizeQuantity){
+        sum += sizeQuantity[key];
+    }
+
+    return sum;
+}
+
   useEffect(() => {
     calculateFinalPrice();
   }, [quantities]);
+  
+  useEffect(() => {
+    setChart(chartProducts);
+  }, []);
 
   return (
     <>
@@ -100,18 +139,18 @@ function page() {
               {/* itens */}
               <div className={styles.fCartItems}>
                 {/* mapeamento pra tirar do comentário dps */}
-                {/* {chartProducts.map((item) => {
+                {chart.map((item, index) => {
                   return(
-                    <div className={styles.fCartItem}>
+                    <div className={styles.fCartItem} key={index}>
                       <img src="\images\products\blvcMohairBrandedSweater.png" width={75} alt='Prod' />
                       <div className={styles.fCartItemInfo}>
                         <h3>{item.name}</h3>
                         <p>R$ {item.discountPrice.toFixed(2).replace('.',',')}</p>
-                        <p>{item.quantity} itens em estoque</p>
+                        <p>{getAvailableUnits(item)} itens em estoque</p>
                         <div className={styles.fCartInput}>
                           <div className={styles.fCartInputWrapper}>
                             <label htmlFor="Quantidade">Quantidade</label>
-                            <input type="number" name="Quantidade" 
+                            <input type="number" name="Quantidade" max={getAvailableUnits(item)}
                                   value={quantities[item.id] ? quantities[item.id] : 0} 
                                   onChange={(e) => updateQuantity(item.id, e)}/>
                           </div>
@@ -125,8 +164,8 @@ function page() {
                       </div>
                     </div>
                   )
-                })} */}
-                <div className={styles.fCartItem}>
+                })}
+                {/* <div className={styles.fCartItem}>
                   <img src="\images\products\blvcMohairBrandedSweater.png" width={75} alt='Prod' />
                   <div className={styles.fCartItemInfo}>
                     <h3>Blvck Mohair Branded Sweater</h3>
@@ -161,7 +200,7 @@ function page() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
           
               {/* bloco de compra */}
@@ -169,7 +208,7 @@ function page() {
                 <div className={styles.fCartTotal}>
                   <div className={styles.fCartTotalInfo}>
                     <p>Subtotal</p>
-                    <h1>R$ {finalPrice.toFixed(2).replace('.', ',')}</h1> 
+                    <h1>R$ {finalPrice ? finalPrice.toFixed(2).replace('.', ',') : "0,00"}</h1> 
                     <button>Comprar Agora</button>
                   </div>
                   <br />

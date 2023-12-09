@@ -28,22 +28,28 @@ export default function Produtos(){
         setVisivel(!visivel);
     }
 
-    // converte uma array apenas com produtos únicos (sem nomes repetidos por causa do tamanho)
-    const getUniqueProducts = (productList: Product[]) => {
-        const uniqueNamesSet = new Set();
-
-        const uniqueProducts = productList.filter((product) => {
-            if (uniqueNamesSet.has(product.name)){
-                return false; // Nome repetido, exclui da lista
-            }
-            else{
-                uniqueNamesSet.add(product.name);
-                return true;
-            }
+    // decodifica o campo size 
+    function decodeStringToObj(inputString: string): { [key: string]: number } {
+        const obj: { [key: string]: number } = {};
+      
+        // Divide a string em pares chave-valor separados por vírgula
+        const pairs = inputString.split(',');
+      
+        // Itera sobre cada par chave-valor e adiciona ao objeto
+        pairs.forEach((pair) => {
+          const [key, value] = pair.split(':');
+          const trimmedKey = key.trim();
+          const parsedValue = parseInt(value.trim(), 10);
+      
+          // Verifica se o valor é um número válido antes de adicionar ao objeto
+          if (!isNaN(parsedValue)) {
+            obj[trimmedKey] = parsedValue;
+          }
         });
-
-        return uniqueProducts;
+      
+        return obj;
     }
+
 
     // pega todos os produtos do banco de dados
     const fetchProducts = async () => {
@@ -56,9 +62,7 @@ export default function Produtos(){
             }
             
             const data: Product[] = await res.json();
-
-            // usar função de não repetir produtos aqui.
-
+            
             setProducts(data);
             setAllProducts(data);
             setNumberFound(data.length);
@@ -69,14 +73,14 @@ export default function Produtos(){
 
     // retorna quantidade de estoque de um produto (somando quantidades de tamanhos diferentes)
     const getAvailableUnits = (product: Product) => {
-        let amount = 0;
-        allProducts.forEach((prod) => {
-            if(prod.name == product.name){
-                amount += prod.quantity;
-            } 
-        });
+        const sizeQuantity = decodeStringToObj(product.size);
+        let sum = 0;
 
-        return amount;
+        for (const key in sizeQuantity){
+            sum += sizeQuantity[key];
+        }
+
+        return sum;
     }
 
     // altera ambiente do site de acordo com o que é digitado na barra de pesquisa
@@ -189,6 +193,9 @@ export default function Produtos(){
 
             setProducts(filteredProducts);
             setNumberFound(filteredProducts.length);
+        }
+        if(categoriesFilters.length == 0 && collectionFilters.length == 0){
+            fetchProducts();
         }
     }
 
@@ -307,6 +314,7 @@ export default function Produtos(){
                     </div>
                 </div>
 
+                {/* PRODUTOS */}
                 {notFound ? (
                             <div className={styles.semitens}>
                                 <img src="\images\search_off.svg" alt="" />
@@ -317,9 +325,9 @@ export default function Produtos(){
                         ) : (
                             // itens encontrados ou todos os produtos
                             <div className={styles.gridprodutos}>
-                                {/* {products.map((product) => {
+                                {products.map((product, index) => {
                                     return(
-                                        <div className={styles.produto}>
+                                        <div className={styles.produto} key={index}>
                                             <img src={product.images[0]} alt="BD"  />
                                             <div className={styles.txtproduto}>
                                                 <h3>{product.name}</h3>
@@ -328,8 +336,8 @@ export default function Produtos(){
                                             </div>
                                         </div>
                                     )
-                                })} */}
-                                <div className={styles.produto}>
+                                })}
+                                {/* <div className={styles.produto}>
                                     <img src="\images\imgfem.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
                                         <h3>Blvck Mohair Branded Sweater</h3>
@@ -427,7 +435,7 @@ export default function Produtos(){
                                 </div>
                                 <div className={styles.numeracaoPagProd}>
                                 {'<'}<div className={styles.num}>1</div>{'>'}
-                                </div>
+                                </div> */}
                             </div>
                         )}
                 </div>

@@ -85,7 +85,7 @@ export async function POST(req: Request, res: NextResponse){
                 quantity: 20, //Não mexe
                 gender: data.gender,// não mexe
                 productType: PRODUCTTYPE.CAMISA, // não mexe
-                tags: [ TAG.CAMISA, TAG.MASCULINO ],
+                tags: [ TAG.CALCAS, TAG.MASCULINO ],
                 collectionId: collection.id,
                 size: "M:3,G:10,GG:15,XGG:12",
                 description: data.description

@@ -8,11 +8,11 @@ import Header from '../components/header';
 import styles from './page.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { Product } from '@prisma/client';
-import ChartContext from '../contexts/chartContext';
+import { ChartContext } from '../contexts/chartContext';
 
 export default function Bodyy(){
     const [product, setProduct] = useState<Product>();
-    const { addProduct } = useContext(ChartContext);
+    const { addProduct, chartProducts } = useContext(ChartContext);
 
     const handleZipCode = (e: { target: any }) => {
         let input = e.target
@@ -50,9 +50,9 @@ export default function Bodyy(){
     }
 
 
-    // useEffect(() => {
-    //     fetchProduct();
-    // }, []);
+    useEffect(() => {
+        fetchProduct(15);
+    }, []);
 
     return(
         <>
@@ -95,7 +95,9 @@ export default function Bodyy(){
                         </div>
                     </div>
                     <div className={styles.botao}>
-                        <button onClick={addToChart}>Adicionar ao Carrinho</button>
+                        <button onClick={addToChart}>
+                            Adicionar ao Carrinho
+                        </button>
                         <div className={styles.fav}>
                             <img src="\icons\favorite_border (1).svg" alt="" />
                         </div>

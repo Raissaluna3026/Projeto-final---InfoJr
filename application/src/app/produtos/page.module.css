@@ -209,6 +209,10 @@
     width: 90%;
     max-width: 1134px;
 }
+.produto img{
+    width: 360px;
+    height: 360px;
+}
 .semitens{
     display: flex;
     flex-direction: column;

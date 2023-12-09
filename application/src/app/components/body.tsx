@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-css-tags */
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../page.module.css';
 import Bodyy from '../produto/page';
 
 
 
-export default function Body(){
 
+export default function Body(){
     return(
         <div className={styles.homepage}>
             <div className={styles.div1}>
