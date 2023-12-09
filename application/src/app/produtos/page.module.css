@@ -44,7 +44,6 @@
 }
 .filtragem{
     width: 100%;
-    max-width: 1134px;
     display: flex;
     justify-content: space-between;
 }
@@ -210,6 +209,10 @@
     width: 90%;
     max-width: 1134px;
 }
+.produto img{
+    width: 360px;
+    height: 360px;
+}
 .semitens{
     display: flex;
     flex-direction: column;
@@ -259,13 +262,49 @@
     .filtragem{
             width: 100%;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
+            gap: 0;
     }
+
+    .filtros{
+        max-width: 8rem;
+    }
+
+    .pesquisaprod{
+        padding-right: 0;
+        gap: 10px;
+        width: 11rem;
+    }
+    
+    .inptprod{
+        width: 100%;
+        max-width: 11rem;
+    }
+
+    .inptprod input{
+        height: 15px;
+        display: flex;
+        border: 1px solid var(--c10, #1B1B1B);
+        max-width: 100%;
+        align-items: flex-start;
+        padding: 10px;
+        align-items: center;
+        font-family: "Cabinet Grotesk";
+        font-size: 14px;
+        font-style: normal;
+        line-height: 150%; /* 21px */
+        min-width: 8rem;
+    }
+    .inptprod img{
+        margin-right: 0.6rem;
+    }
+
+
     .invprod{
         width: 300px;
-        max-width: 76.5vw;
         position: absolute;
-        margin-top: 39px;
+        bottom: 29.5%;
+        right: 14.2%;
     }
 
 }

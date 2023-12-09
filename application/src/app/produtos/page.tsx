@@ -8,35 +8,48 @@ import styles from './page.module.css';
 import { Product } from "@prisma/client";
 import { TAG } from "@prisma/client";
 
+
+interface stockState {
+    [productId: number]: number;
+}
+
 export default function Produtos(){
     const [visivel, setVisivel] = useState(false);
     const [products, setProducts] = useState<Product[]>([]); // lista de produtos que estarão visíveis na tela
+    const [allProducts, setAllProducts] = useState<Product[]>([]); 
     const [search, setSearch] = useState("");
     const [notFound, setNotFound] = useState(false);
     const [collectionFilters, setCollectionFilters] = useState<string[]>([]);
     const [categoriesFilters, setCategoriesFilters] = useState<string[]>([]);
     const [numberFound, setNumberFound] = useState<number>();
+    const [stock, setStock] = useState<stockState>({});
 
     const handleClick = () => {
         setVisivel(!visivel);
     }
 
-    // converte uma array apenas com produtos únicos (sem nomes repetidos por causa do tamanho)
-    const getUniqueProducts = (productList: Product[]) => {
-        const uniqueNamesSet = new Set();
-
-        const uniqueProducts = productList.filter((product) => {
-            if (uniqueNamesSet.has(product.name)){
-                return false; // Nome repetido, exclui da lista
-            }
-            else{
-                uniqueNamesSet.add(product.name);
-                return true;
-            }
+    // decodifica o campo size 
+    function decodeStringToObj(inputString: string): { [key: string]: number } {
+        const obj: { [key: string]: number } = {};
+      
+        // Divide a string em pares chave-valor separados por vírgula
+        const pairs = inputString.split(',');
+      
+        // Itera sobre cada par chave-valor e adiciona ao objeto
+        pairs.forEach((pair) => {
+          const [key, value] = pair.split(':');
+          const trimmedKey = key.trim();
+          const parsedValue = parseInt(value.trim(), 10);
+      
+          // Verifica se o valor é um número válido antes de adicionar ao objeto
+          if (!isNaN(parsedValue)) {
+            obj[trimmedKey] = parsedValue;
+          }
         });
-
-        return uniqueProducts;
+      
+        return obj;
     }
+
 
     // pega todos os produtos do banco de dados
     const fetchProducts = async () => {
@@ -49,14 +62,25 @@ export default function Produtos(){
             }
             
             const data: Product[] = await res.json();
-
-            // usar função de não repetir produtos aqui.
-
+            
             setProducts(data);
+            setAllProducts(data);
             setNumberFound(data.length);
           } catch (error) {
             console.log('fetch error: ', error);
         }
+    }
+
+    // retorna quantidade de estoque de um produto (somando quantidades de tamanhos diferentes)
+    const getAvailableUnits = (product: Product) => {
+        const sizeQuantity = decodeStringToObj(product.size);
+        let sum = 0;
+
+        for (const key in sizeQuantity){
+            sum += sizeQuantity[key];
+        }
+
+        return sum;
     }
 
     // altera ambiente do site de acordo com o que é digitado na barra de pesquisa
@@ -81,6 +105,12 @@ export default function Produtos(){
         setNumberFound(result.length);
         }
     };
+
+    const onButtonClickHandler = () => {
+        if(search){
+          onSearchHandler(search);  
+        }
+    }
 
     // detecta digitação na barra de pesquisa
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -164,6 +194,9 @@ export default function Produtos(){
             setProducts(filteredProducts);
             setNumberFound(filteredProducts.length);
         }
+        if(categoriesFilters.length == 0 && collectionFilters.length == 0){
+            fetchProducts();
+        }
     }
 
     const resetFilters = () =>{
@@ -191,7 +224,7 @@ export default function Produtos(){
                     <div className={styles.pesquisaprod}>
                         <div className={styles.inptprod}>
                             <input type="text"  placeholder="Pesquisar" onChange={onChangeHandler}/>
-                            <img src="\icons\search.svg" alt="" />
+                            <img src="\icons\search.svg" alt="" onClick={onButtonClickHandler} />
                         </div>
                         <p>{numberFound} Itens encontrados!</p>
                     </div>
@@ -281,6 +314,7 @@ export default function Produtos(){
                     </div>
                 </div>
 
+                {/* PRODUTOS */}
                 {notFound ? (
                             <div className={styles.semitens}>
                                 <img src="\images\search_off.svg" alt="" />
@@ -291,19 +325,19 @@ export default function Produtos(){
                         ) : (
                             // itens encontrados ou todos os produtos
                             <div className={styles.gridprodutos}>
-                                {/* {products.map((product) => {
+                                {products.map((product, index) => {
                                     return(
-                                        <div className={styles.produto}>
+                                        <div className={styles.produto} key={index}>
                                             <img src={product.images[0]} alt="BD"  />
                                             <div className={styles.txtproduto}>
                                                 <h3>{product.name}</h3>
-                                                <p>R$ {product.discountPrice},00<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
-                                                <p><span>{product.quantity} Itens em estoque</span></p>
+                                                <p>R$ {product.discountPrice.toFixed(2).replace('.', ',')}<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
+                                                <p><span>{getAvailableUnits(product)} Itens em estoque</span></p>
                                             </div>
                                         </div>
                                     )
-                                })} */}
-                                <div className={styles.produto}>
+                                })}
+                                {/* <div className={styles.produto}>
                                     <img src="\images\imgfem.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
                                         <h3>Blvck Mohair Branded Sweater</h3>
@@ -401,7 +435,7 @@ export default function Produtos(){
                                 </div>
                                 <div className={styles.numeracaoPagProd}>
                                 {'<'}<div className={styles.num}>1</div>{'>'}
-                                </div>
+                                </div> */}
                             </div>
                         )}
                 </div>

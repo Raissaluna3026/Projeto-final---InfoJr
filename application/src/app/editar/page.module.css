@@ -189,6 +189,12 @@
     grid-template-rows: 1fr;
     gap: 20px;
 }
+
+.produto img{
+    width: 265px;
+    height: 265px;
+}
+
 .semitens{
     display: flex;
     flex-direction: column;
@@ -269,7 +275,7 @@
     .invprod{
         width: 300px;
         position: absolute;
-        bottom: 24%;
-        right: 11%;
+        bottom: 29.3%;
+        right: 7%;
     }
 }

@@ -481,6 +481,7 @@
   align-items: center;
 }
 
+
 .fCartSeeMoreButton {
   margin-top: 50px;
   width: 230px;
@@ -539,6 +540,7 @@
 
   .fCartOtherProd img {
     width: 120px;
+    height: 120px;
   }
 
   .fCartOtherProdItem {

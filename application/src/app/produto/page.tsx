@@ -6,11 +6,25 @@ import Link from 'next/link';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import styles from './page.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Product } from '@prisma/client';
+import { ChartContext } from '../contexts/chartContext';
 
 export default function Bodyy(){
     const [product, setProduct] = useState<Product>();
+    const { addProduct, chartProducts } = useContext(ChartContext);
+
+    const handleZipCode = (e: { target: any }) => {
+        let input = e.target
+        input.value = zipCodeMask(input.value)
+    }
+    
+    const zipCodeMask = (value: string) => {
+        if (!value) return ""
+        value = value.replace(/\D/g, '')
+        value = value.replace(/(\d{5})(\d)/, '$1-$2')
+        return value
+    }
 
     // buscar dados do produto no banco de dados
     const fetchProduct = async (id: number) => {
@@ -29,6 +43,17 @@ export default function Bodyy(){
         }
     } 
 
+    const addToChart = () =>{
+        if(product){
+            addProduct(product);
+        }   
+    }
+
+
+    useEffect(() => {
+        fetchProduct(15);
+    }, []);
+
     return(
         <>
         <Header/>
@@ -46,6 +71,7 @@ export default function Bodyy(){
                     </div>
                 </div>
                 <div className={styles.divright}>
+                    {/* genero > tag > Nome */}
                     <p> {`Masculino > Casacos > Blvck Mohair Branded Sweater`}</p>
                     <h2>Blvck Mohair Branded Sweater</h2>
                     <h5>R$ 646,00 <span><del>R$746,00</del></span></h5>
@@ -54,22 +80,24 @@ export default function Bodyy(){
                         <div className={styles.inptxt}>
                             <p>Quantidade</p>
                             <select name="opcoes">
-                                <option value="opcao1">1</option>
-                                <option value="opcao2">2</option>
-                                <option value="opcao3">3</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                         </div>
                         <div  className={styles.inptxt}>
                             <p>Tamanho</p>
                             <select name="opcoes">
-                                <option value="opcao1">M</option>
-                                <option value="opcao2">G</option>
-                                <option value="opcao3">P</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="P">P</option>
                             </select>
                         </div>
                     </div>
                     <div className={styles.botao}>
-                        <button>Adicionar ao Carrinho</button>
+                        <button onClick={addToChart}>
+                            Adicionar ao Carrinho
+                        </button>
                         <div className={styles.fav}>
                             <img src="\icons\favorite_border (1).svg" alt="" />
                         </div>
@@ -77,7 +105,7 @@ export default function Bodyy(){
                     <div>
                         <p className={styles.frete}>Calcular frete</p>
                         <div className={styles.inptfinal}>
-                            <input type="text" placeholder='40020-000' />
+                            <input type="text" placeholder='40020-000' maxLength={9} onKeyUp={handleZipCode}/>
                         <div className={styles.setta}><img src="\icons\arrow_forward (2).svg" alt="" /></div>
                     </div>
                     </div>

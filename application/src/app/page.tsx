@@ -4,14 +4,16 @@ import styles from './page.module.css'
 import Body from './components/body'
 import Header from './components/header';
 import Footer from './components/footer';
-
+import { ChartProvider } from './contexts/chartContext';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Header />
-      <Body />
-      <Footer />
-    </main>
+      <>
+      <main className={styles.main}>
+        <Header />
+        <Body />
+        <Footer />
+      </main>
+      </>
   )
 }
