@@ -8,14 +8,21 @@ import styles from './page.module.css';
 import { Product } from "@prisma/client";
 import { TAG } from "@prisma/client";
 
+
+interface stockState {
+    [productId: number]: number;
+}
+
 export default function Produtos(){
     const [visivel, setVisivel] = useState(false);
     const [products, setProducts] = useState<Product[]>([]); // lista de produtos que estarão visíveis na tela
+    const [allProducts, setAllProducts] = useState<Product[]>([]); 
     const [search, setSearch] = useState("");
     const [notFound, setNotFound] = useState(false);
     const [collectionFilters, setCollectionFilters] = useState<string[]>([]);
     const [categoriesFilters, setCategoriesFilters] = useState<string[]>([]);
     const [numberFound, setNumberFound] = useState<number>();
+    const [stock, setStock] = useState<stockState>({});
 
     const handleClick = () => {
         setVisivel(!visivel);
@@ -53,10 +60,23 @@ export default function Produtos(){
             // usar função de não repetir produtos aqui.
 
             setProducts(data);
+            setAllProducts(data);
             setNumberFound(data.length);
           } catch (error) {
             console.log('fetch error: ', error);
         }
+    }
+
+    // retorna quantidade de estoque de um produto (somando quantidades de tamanhos diferentes)
+    const getAvailableUnits = (product: Product) => {
+        let amount = 0;
+        allProducts.forEach((prod) => {
+            if(prod.name == product.name){
+                amount += prod.quantity;
+            } 
+        });
+
+        return amount;
     }
 
     // altera ambiente do site de acordo com o que é digitado na barra de pesquisa
@@ -304,7 +324,7 @@ export default function Produtos(){
                                             <div className={styles.txtproduto}>
                                                 <h3>{product.name}</h3>
                                                 <p>R$ {product.discountPrice.toFixed(2).replace('.', ',')}<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
-                                                <p><span>{product.quantity} Itens em estoque</span></p>
+                                                <p><span>{getAvailableUnits(product)} Itens em estoque</span></p>
                                             </div>
                                         </div>
                                     )
