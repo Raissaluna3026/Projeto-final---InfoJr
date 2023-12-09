@@ -44,6 +44,7 @@
 }
 .filtragem{
     width: 100%;
+    max-width: 1134px;
     display: flex;
     justify-content: space-between;
 }
@@ -103,7 +104,6 @@
     width: 700px;
     justify-content: flex-end;
     flex-wrap: wrap;
-    
     
 }
 .tagprod{
@@ -260,10 +260,9 @@
         object-fit: cover;
     }
     .filtragem{
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
     .filtros{
@@ -299,12 +298,23 @@
         margin-right: 0.6rem;
     }
 
-
     .invprod{
         width: 300px;
+        max-width: 76.5vw;
         position: absolute;
-        bottom: 29.5%;
-        right: 14.2%;
+        margin-top: 39px;
+    }
+    .tagsprod{
+        flex-wrap: wrap;
+        max-width: 330px;
+        margin-top: 30px;
+    }
+    .semitens h2{
+        font-size: 5px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 49.5px */
+        letter-spacing: 0.083px;
     }
 
 }

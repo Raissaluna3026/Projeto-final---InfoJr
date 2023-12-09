@@ -150,7 +150,7 @@ export default function Edicao(){
             case "acessórios":
             return TAG.ACESSORIOS;
             case "calças":
-            return TAG.CALCAS;
+            return TAG.CALCA;
             case "casacos":
             return TAG.CASACOS;
             case "feminino":
@@ -344,7 +344,7 @@ export default function Edicao(){
                                         </div>
                                     )
                                 })}
-                                {/* <div className={styles.produto}>
+                                 <div className={styles.produto}>
                                     <img src="\images\imgfem2.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
                                         <h3>Blvck Mohair Branded Sweater</h3>
@@ -439,7 +439,7 @@ export default function Edicao(){
                                         <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
                                         <p><span>X Itens em estoque</span></p>
                                     </div>
-                                </div> */}
+                                </div> 
                                 <div className={styles.numeracaoPagProd}>
                                 {'<'}<div className={styles.num}>1</div>{'>'}
                                 </div>

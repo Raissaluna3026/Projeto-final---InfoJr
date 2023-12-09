@@ -154,7 +154,7 @@ export default function Produtos(){
             case "acessórios":
             return TAG.ACESSORIOS;
             case "calças":
-            return TAG.CALCAS;
+            return TAG.CALCA;
             case "casacos":
             return TAG.CASACOS;
             case "feminino":
@@ -337,7 +337,7 @@ export default function Produtos(){
                                         </div>
                                     )
                                 })}
-                                {/* <div className={styles.produto}>
+                                <div className={styles.produto}>
                                     <img src="\images\imgfem.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
                                         <h3>Blvck Mohair Branded Sweater</h3>
@@ -435,7 +435,7 @@ export default function Produtos(){
                                 </div>
                                 <div className={styles.numeracaoPagProd}>
                                 {'<'}<div className={styles.num}>1</div>{'>'}
-                                </div> */}
+                                </div> 
                             </div>
                         )}
                 </div>
