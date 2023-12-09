@@ -17,12 +17,13 @@ interface SizesState {
 }
 
 function page() {
+  const [allProducts, setAllProducts] = useState<Product[]>([]); 
   const [chart, setChart] = useState<Product[]>([]); //exemplo p apagar depois
   const [emptyChart, setEmptyChart] = useState(false);
   const [finalPrice, setFinalPrice] = useState<number>(0);
   const [quantities, setQuantities] = useState<QuantitiesState>({});
   const [sizes, setSizes] = useState<SizesState>({});
-  const { chartProducts, removeAllProducts } = useContext(ChartContext);
+  const { chartProducts, removeAllProducts, addProduct } = useContext(ChartContext);
 
   const handleZipCode = (e: { target: any }) => {
     let input = e.target
@@ -49,6 +50,23 @@ function page() {
     // removeAllProducts();
     setEmptyChart(true);
   }
+
+  // pega todos os produtos do banco de dados
+  const fetchProducts = async () => {
+    try {
+        const res = await fetch("../api/v1/product/all");
+
+        if (!res.ok) {
+            throw new Error('Erro ao buscar produtos');
+        }
+        
+        const data: Product[] = await res.json();
+        
+        setAllProducts(data);
+      } catch (error) {
+        console.log('fetch error: ', error);
+    }
+}
 
   const updateQuantity = (productId: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(event.target.value) || 0;
@@ -110,13 +128,31 @@ function page() {
     return sum;
 }
 
+  const addToChart = (product: Product) =>{
+    if(product){
+        addProduct(product);
+    }   
+    setEmptyChart(false);
+  }
+
   useEffect(() => {
     calculateFinalPrice();
   }, [quantities]);
   
   useEffect(() => {
-    setChart(chartProducts);
+    if(chartProducts.length>0){
+      setChart(chartProducts);
+    }
+    else{
+      setEmptyChart(true);
+    }
+
+    fetchProducts();
   }, []);
+
+  useEffect(() => {
+    setChart(chartProducts);
+  }, [addToChart]);
 
   return (
     <>
@@ -129,7 +165,7 @@ function page() {
                 <h2>Seu carrrinho está vazio</h2>
                 <p>Adicione novos itens ao carrinho antes de prosseguir para o pagamento!</p>
                 <div className={styles.fCartButtons}>
-                  <button>Continuar comprando</button>
+                  <Link  href={"/"}> <button>Continuar comprando</button> </Link>
                 </div>
               </div>
 
@@ -272,7 +308,20 @@ function page() {
         <div className={styles.fCartOtherProd}>
           <h1>Outros produtos</h1>
           <div className={styles.fCartOtherProdItems}>
-            <div className={styles.fCartOtherProdItem}>
+          {allProducts.map((product, index) => {
+              return(
+                  <div className={styles.fCartOtherProdItem} key={index}>
+                      <img src={product.images[0]} alt="BD" width={265} height={265}  />
+                      <div>
+                          <h3>{product.name}</h3>
+                          <p>R$ {product.discountPrice.toFixed(2).replace('.', ',')}</p>
+                          <p><span>{getAvailableUnits(product)} Itens em estoque</span></p>
+                          <button className={styles.fCartButton} onClick={() => addToChart(product)}>Adicionar ao carrinho</button>
+                      </div>
+                  </div>
+              )
+            })}
+            {/* <div className={styles.fCartOtherProdItem}>
               <img src="\images\products\blvcMohairBrandedSweater.png" width={265} alt="" />
               <div>
                 <h3>Blvck Mohair Branded Sweater</h3>
@@ -325,7 +374,7 @@ function page() {
                 <p>2 itens em estoque</p>
                 <button className={styles.fCartButton}>Adicionar ao carrinho</button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <button className={styles.fCartSeeMoreButton}>Ver Mais</button>

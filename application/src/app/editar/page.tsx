@@ -13,6 +13,7 @@ export default function Edicao(){
     const [openCreateProductModal, setOpenCreateProductModal] = useState(false)
     const [visivel, setVisivel] = useState(false);
     const [products, setProducts] = useState<Product[]>([]); // lista de produtos que estarão visíveis na tela
+    const [allProducts, setAllProducts] = useState<Product[]>([]); 
     const [search, setSearch] = useState("");
     const [notFound, setNotFound] = useState(false);
     const [collectionFilters, setCollectionFilters] = useState<string[]>([]);
@@ -23,22 +24,28 @@ export default function Edicao(){
         setVisivel(!visivel);
     }
 
-    // converte uma array apenas com produtos únicos (sem nomes repetidos por causa do tamanho)
-    const getUniqueProducts = (productList: Product[]) => {
-        const uniqueNamesSet = new Set();
-
-        const uniqueProducts = productList.filter((product) => {
-            if (uniqueNamesSet.has(product.name)){
-                return false; // Nome repetido, exclui da lista
-            }
-            else{
-                uniqueNamesSet.add(product.name);
-                return true;
-            }
+    // decodifica o campo size 
+    function decodeStringToObj(inputString: string): { [key: string]: number } {
+        const obj: { [key: string]: number } = {};
+      
+        // Divide a string em pares chave-valor separados por vírgula
+        const pairs = inputString.split(',');
+      
+        // Itera sobre cada par chave-valor e adiciona ao objeto
+        pairs.forEach((pair) => {
+          const [key, value] = pair.split(':');
+          const trimmedKey = key.trim();
+          const parsedValue = parseInt(value.trim(), 10);
+      
+          // Verifica se o valor é um número válido antes de adicionar ao objeto
+          if (!isNaN(parsedValue)) {
+            obj[trimmedKey] = parsedValue;
+          }
         });
-
-        return uniqueProducts;
+      
+        return obj;
     }
+
 
     // pega todos os produtos do banco de dados
     const fetchProducts = async () => {
@@ -46,18 +53,30 @@ export default function Edicao(){
             const res = await fetch("../api/v1/product/all");
 
             if (!res.ok) {
+                setNumberFound(0);
                 throw new Error('Erro ao buscar produtos');
             }
             
             const data: Product[] = await res.json();
-
-            // usar função de não repetir produtos aqui.
-
+            
             setProducts(data);
+            setAllProducts(data);
             setNumberFound(data.length);
           } catch (error) {
             console.log('fetch error: ', error);
         }
+    }
+
+    // retorna quantidade de estoque de um produto (somando quantidades de tamanhos diferentes)
+    const getAvailableUnits = (product: Product) => {
+        const sizeQuantity = decodeStringToObj(product.size);
+        let sum = 0;
+
+        for (const key in sizeQuantity){
+            sum += sizeQuantity[key];
+        }
+
+        return sum;
     }
 
     // altera ambiente do site de acordo com o que é digitado na barra de pesquisa
@@ -161,13 +180,18 @@ export default function Edicao(){
 
             
             if (!res.ok) {
+                setNumberFound(0);
                 throw new Error('Erro ao filtrar produtos');
             }
             
             const filteredProducts: Product[] = await res.json();
+            console.log(filteredProducts);
 
             setProducts(filteredProducts);
             setNumberFound(filteredProducts.length);
+        }
+        if(categoriesFilters.length == 0 && collectionFilters.length == 0){
+            fetchProducts();
         }
     }
 
@@ -181,6 +205,10 @@ export default function Edicao(){
     useEffect(() => {
         fetchProducts();
     }, []);
+
+    useEffect(() => {
+        fetchProducts();
+    }, [openCreateProductModal]);
 
     useEffect(() => {
         handleFilterChange();
@@ -304,19 +332,19 @@ export default function Edicao(){
                         ) : (
                             // itens encontrados ou todos os produtos
                             <div className={styles.gridprodutos2}>
-                                {/* {products.map((product) => {
+                                {products.map((product, index) => {
                                     return(
-                                        <div className={styles.produto}>
+                                        <div className={styles.produto} key={index}>
                                             <img src={product.images[0]} alt="BD"  />
                                             <div className={styles.txtproduto}>
                                                 <h3>{product.name}</h3>
-                                                <p>R$ {product.discountPrice},00<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
-                                                <p><span>{product.quantity} Itens em estoque</span></p>
+                                                <p>R$ {product.discountPrice.toFixed(2).replace('.', ',')}<span> <del>R$ {product.totalPrice.toFixed(2).replace('.', ',')}</del></span></p>
+                                                <p><span>{getAvailableUnits(product)} Itens em estoque</span></p>
                                             </div>
                                         </div>
                                     )
-                                })} */}
-                                <div className={styles.produto}>
+                                })}
+                                {/* <div className={styles.produto}>
                                     <img src="\images\imgfem2.png" alt="BD"  />
                                     <div className={styles.txtproduto}>
                                         <h3>Blvck Mohair Branded Sweater</h3>
@@ -411,7 +439,7 @@ export default function Edicao(){
                                         <p>R$ 654,00<span> <del>R$ 746,00</del></span></p>
                                         <p><span>X Itens em estoque</span></p>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className={styles.numeracaoPagProd}>
                                 {'<'}<div className={styles.num}>1</div>{'>'}
                                 </div>

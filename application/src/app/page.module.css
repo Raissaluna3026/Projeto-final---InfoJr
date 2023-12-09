@@ -260,7 +260,8 @@
 }
 
 .produto img {
-    width: 100%;
+    width: 360px;
+    height: 360px;
 }
 @media (max-width: 600px){
     .div1 h2{
