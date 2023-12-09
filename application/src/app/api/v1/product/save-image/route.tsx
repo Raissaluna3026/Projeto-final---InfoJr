@@ -33,7 +33,7 @@ type payload = {
 export async function POST(req: NextRequest, res: Response){
     const data: payload = await req.json()
 
-    console.log(data)
+    console.log(data.id)
 
     const addLinksToImages = await prisma.product.update({
         where: {

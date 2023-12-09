@@ -27,7 +27,7 @@ type Stock = {
     XGG?: string,
   }
 interface Product {
-    quantity: number;
+    quantity: string;
     name: string,
     stockSize: Stock[];
     totalPrice: string;
@@ -76,19 +76,20 @@ export async function POST(req: Request, res: NextResponse){
         //insere o produto na coleção correta
         //adicionar stock
         //stock: data.stockSize,
+        console.log(data)
         const product = await prisma.product.create({
             data: {
                 name: data.name,
                 totalPrice: parseFloat(data.totalPrice),
                 discountPrice: parseFloat(data.discountPrice),
-                quantity: parseInt(data.discountPrice),
-                gender: data.gender,
-                productType: PRODUCTTYPE.CAMISA,
-                tags: [ TAG.CAMISA, TAG.MASCULINO],
+                quantity: 20, //Não mexe
+                gender: data.gender,// não mexe
+                productType: PRODUCTTYPE.CAMISA, // não mexe
+                tags: [ TAG.CAMISA, TAG.MASCULINO ],
                 collectionId: collection.id,
-                description: data.description,
-            }
-
+                size: "M:3,G:10,GG:15,XGG:12",
+                description: data.description
+        }
         })    
         return NextResponse.json({message: "Produto inserido", id: product.id}, {status: 201})
     } catch (error) {
